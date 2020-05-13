@@ -3,7 +3,8 @@ Descripción del Proyecto:
 El Proyecto consiste en un sitio web de una Bolsa de Empleos. Deberá incluirse un API para desarrolladores.  Los Casos de Uso del Proyecto 
 Las secciones siguientes describen las características que queremos aplicar en la primera versión / iteración del proyecto con algunos Casos de Uso sencillos. 
  
-El sitio web tiene tres tipos de usuarios: 
+El sitio web tiene tres tipos de usuarios:
+
 • Administrador: Propietario del Sitio Web 
 
 • User: Visita la página web para buscar un puesto de trabajo y se postula para uno. 
