@@ -1,0 +1,26 @@
+{
+  "name": "P3-Web",
+  "version": "1.0.0",
+  "description": "Descripción del Proyecto: \r El Proyecto consiste en un sitio web de una Bolsa de Empleos. Deberá incluirse un API para desarrolladores.  Los Casos de Uso del Proyecto \r Las secciones siguientes describen las características que queremos aplicar en la primera versión / iteración del proyecto con algunos Casos de Uso sencillos.",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k0o/P3-Web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/k0o/P3-Web/issues"
+  },
+  "homepage": "https://github.com/k0o/P3-Web#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
