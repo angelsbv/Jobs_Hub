@@ -1,0 +1,83 @@
+﻿@media only screen and (max-width: 775px) {
+    .container {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+
+    .body-content {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    #contenido {
+        box-shadow: none !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+}
+
+@media only screen and (max-width:590px) {
+    .row .col.offset-s1 {
+        margin-left: 0 !important;
+    }
+
+    .row .col.s10 {
+        width: 100%;
+    }
+
+    .contenido-parent {
+        padding: 0 !important;
+    }
+
+    .contenido {
+        border-radius: 0;
+        height: 100vh;
+        margin: 0px;
+    }
+
+    form {
+        margin-left: 0 !important;
+    }
+
+    input {
+        max-width: 1500px;
+    }
+
+    .inpfield-date {
+        margin-top:3rem;
+    }
+
+    .s4 {
+        width: 100% !important;
+    }
+
+    .s6 {
+        width: 100% !important;
+    }
+
+    .s8 {
+        width: 100% !important;
+    }
+}
+
+.smallglass{
+    width: 100%;
+    opacity: 0.85;
+}
+
+.smallrow{
+    margin-bottom: 0!important;
+}
+
+.smallnemo{
+    max-width: 800px!important;
+}
+
+button[value="Registrarme"]{
+    width: 100%;
+}
+
+span[aria-errormessage="true"]{
+    color: #f32736 !important;
+}

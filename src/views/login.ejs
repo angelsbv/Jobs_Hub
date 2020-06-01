@@ -1,0 +1,96 @@
+<link rel="stylesheet" href="/styles/login.css" />
+<title>Login</title>
+<div 
+    class="valign-wrapper" 
+    style="min-height: 100vh;"
+>
+    <div 
+        class="container loginsbc-container" 
+        style="max-width: 717px;"
+    >
+        <div class="row _sag3">
+            <div class="col s12 _sag4">
+                <div 
+                    id="content" 
+                    class="m2"
+                >
+                    <div class="light-blue darken-2 login-header">
+                        <span class="_spn0x24header">Digite sus datos de autenticaci&oacute;n</span>
+                    </div>
+                    <form 
+                        action="/login" 
+                        method="POST" 
+                        class="col s12 offset-s1">
+                        <div class="row">
+                            <% if(err.length > 0 && err[0].msg === '!ci!'){ %>
+                                <div class="col s10 center-align err-msg">
+                                    <div>Lo sentimos, ha digitado credenciales incorrectas, int&eacute;ntelo nuevamente.</div>
+                                </div>
+                            <% } %> 
+                            <div class="input-field col s10">
+                                <input 
+                                    type="text" 
+                                    name="username" 
+                                    id="username"
+                                    autocapitalize="off"
+                                    autocomplete="off"
+                                    value=<% if(err.length > 0){ %> 
+                                            <%- err[0].username %>
+                                        <%}%>""
+                                />
+
+                                <label 
+                                    for="username" 
+                                    class="unableToSelect"
+                                >Nombre de usuario</label>
+                            </div>
+                            <div class="input-field col s10">
+                                <input 
+                                    type="password" 
+                                    name="password" 
+                                    id="password" 
+                                    autocapitalize="off" 
+                                    autocomplete="off"
+                                />
+                                <label 
+                                    for="password"
+                                    class="unableToSelect"
+                                >
+                                    Contrase&ntilde;a
+                                </label>
+                            </div>
+                            <div class="col s10">
+                                <div class="col s6">
+                                    <a
+                                        href="/recover" 
+                                        style="display:inline-block"
+                                    >
+                                        &iquest;Haz olvidado tu contrase&ntilde;a?
+                                    </a>
+                                    <a 
+                                        href="/register" 
+                                        style="display:inline-block"
+                                    >
+                                        &iquest;No tienes una cuenta?
+                                    </a>
+                                </div>
+                                <div class="col s5 right">
+                                    <button 
+                                        type="submit" 
+                                        value="Acceder"
+                                        class="btn waves-effect waves-teal white-text blue" style="width:100%"
+                                        id="submitBtn"
+                                        disabled
+                                    >
+                                        Acceder
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/scripts/login.vald.dev01.js" type="text/javascript"></script>
