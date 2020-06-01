@@ -5,7 +5,7 @@ CREATE TABLE users(
     ID int(11) NOT NULL,
     username varchar(21) NOT NULL,
     email varchar(255) NOT NULL,
-    pwdhash varchar(255) NOT NULL
+    password varchar(255) NOT NULL
 );
 
 ALTER TABLE users
