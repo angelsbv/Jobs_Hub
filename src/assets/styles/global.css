@@ -1,0 +1,86 @@
+﻿﻿body {
+    padding-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.unableToSelect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer{
+    padding-top:0!important;
+    padding-bottom:0!important;
+}
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.contenido {
+    background-color: white;
+    border-radius: 10px;
+    -webkit-box-shadow: rgba(0,0,0,0.6) 0 0 2.67px;
+    -moz-box-shadow: rgba(0,0,0,0.6) 0 0 2.67px;
+    box-shadow: rgba(0,0,0,0.6) 0 0 2.67px;
+    margin: 40px auto;
+    padding: 10px !important;
+    transition: ease-in-out;
+}
+
+.contenido::after {
+    clear: both;
+    display: block;
+    content: '';
+}
+
+input:focus {
+    border-bottom: 1px solid #2196F3!important;
+    -webkit-box-shadow: 0 1px 0 0 #2196F3!important;
+    box-shadow: 0 1px 0 0 #2196F3!important;
+}
+input:not([type]):focus:not([readonly]) + label, 
+input[type=text]:not(.browser-default):focus:not([readonly]) + label, 
+input[type=password]:not(.browser-default):focus:not([readonly]) + label, 
+input[type=email]:not(.browser-default):focus:not([readonly]) + label, 
+input[type=url]:not(.browser-default):focus:not([readonly]) + label, 
+input[type=time]:not(.browser-default):focus:not([readonly]) + label, 
+input[type=date]:not(.browser-default):focus:not([readonly]) + label, 
+input[type=datetime]:not(.browser-default):focus:not([readonly]) + label, 
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label, 
+input[type=tel]:not(.browser-default):focus:not([readonly]) + label, 
+input[type=number]:not(.browser-default):focus:not([readonly]) + label, 
+input[type=search]:not(.browser-default):focus:not([readonly]) + label, 
+textarea.materialize-textarea:focus:not([readonly]) + label{
+    color: #2196F3 !important;
+}
+
+html {
+    line-height: 1.5;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}
