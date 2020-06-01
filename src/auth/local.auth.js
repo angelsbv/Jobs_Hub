@@ -16,7 +16,7 @@ Errores:
 !e!: email registrado
 !u!: username registrado
 !pdm!: contraseña y confirmación distintas
-!ci!: credenciales incorrectas (username o password)
+!ci!: credenciales incorrectas (username/email o password)
 */
 
 const usernameExists = async (username) => {
@@ -46,10 +46,11 @@ passport.use('local-signup', new LocalStrategy({
     //cpwd = confirm password
     const { email, cpwd } = req.body;
     const errs = [];
-    if(usernameExists(username)) errs.push('!u!', ':');
-    if(emailExists(email)) errs.push('!e!', ':');
+    if(await usernameExists(username)) errs.push('!u!', ':');
+    if(await emailExists(email)) errs.push('!e!', ':');
     if(password !== cpwd) errs.push('!pdm!', ':');
     if(errs.length > 0){
+        console.log(errs);
         done(null, false, req.flash('err', { errCodes: errs, data: req.body }));
     }
     else{

@@ -25,7 +25,7 @@ router.get('/authed', (req, res, next) => {
     else next();
 })
 
-router.get('/register', (req, res, next) => {
+router.get('/register', (req, res) => {
     if(!isAuth(req)){
         res.render('register', {
             layout: 'layouts/M'
@@ -67,7 +67,8 @@ router.get('/logout', (req, res, next) => {
         req.logOut();
         res.redirect('/');
     }
-    next();
+    else
+        next();
 });
 
 router.use((req, res, next) => {
