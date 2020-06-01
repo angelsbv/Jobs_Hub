@@ -10,8 +10,8 @@ const database = {
 const pool = mysql.createPool(database);
 
 pool.getConnection((err, conn) => {
-    if(err) console.error(err);
-    if(conn) conn.release();
+    if (err) console.error(err);
+    if (conn) conn.release();
     console.log('Connected to DB');
     return;
 });
