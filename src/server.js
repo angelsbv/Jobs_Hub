@@ -44,5 +44,5 @@ app.use((req, res, next) => {
 // Routes
 app.use('/', require('./routes/index.routes'))
 
-//Starting server
+// Starting server
 app.listen(app.get('port'), () => console.log(`Server on port ${app.get('port')}`))
