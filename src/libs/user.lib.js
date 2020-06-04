@@ -31,14 +31,17 @@ module.exports.sendConfirmationMail = async ({ headers: { origin } }, { email })
             from: USER_MAIL,
             subject: 'Confirmación',
             html: `
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-            <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Gracias por registrarte</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Ahora confirma tu sesion</h6>
-              <p class="card-text">Haz click en el boton para confirmar tu cuenta, bienvenido a nuestra plataforma.</p>
-              <div class="text-right">
-              <a href="${origin}/c/${token}" class="card-link btn btn-primary">Continuar</a>
+            
+            <div style="width: 18rem; 
+                border-color: blue;
+                border-width: 1px;
+                border-style: solid;">
+            <div>
+              <h4>Gracias por registrarte</h5>
+              <h5>Ahora confirma tu sesion</h6>
+              <p>Haz click en el boton para confirmar tu cuenta, bienvenido a nuestra plataforma.</p>
+              <div style="text-align: right;">
+              <button><a href="${origin}/c/${token}">Continuar</a></button>
               </div>
             </div>
           </div>
