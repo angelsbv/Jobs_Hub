@@ -18,135 +18,163 @@
         </div>
     </div>
 </div>
-<div 
-    class="row smallrow valign-wrapper" 
-    style="min-height: 100vh;"
->
-    <div class="col s10 offset-s1 contenido-parent">
-        <div 
-            class="contenido m2" 
-            style="max-width: 800px;"
-        >
-            <form 
-                action="/register" 
-                method="post" 
-                class="col s12 offset-s2"
-            >
-                <div class="row">
-                    <!-- <div class="col s8">
-                        <%# JSON.stringify(err[0]) %>
-                    </div> -->
-                    <div 
-                        class="col s8" 
-                        style="padding:0px!important;"
-                    >
-                        <h3>Crea tu cuenta</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s8">
-                        <input 
-                            id="username" 
-                            type="text"
-                            name="username" 
-                            autocomplete="off" 
-                            style="min-width: 100%;"
-                            value=<% if(err.length > 0){ %> 
-                                <%- err[0].data.username %>
-                            <%}%>""
-                        >
-                        <label 
-                            for="username" 
-                            class="unableToSelect"
-                        >Nombre de usuario</label>
-                        <span 
-                            aria-errormessage="true"
-                            class="helper-text"
-                            id="err-msg-ue"
-                        ></span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s8">
-                        <input 
-                            id="email" 
-                            type="text" 
-                            class="smallnemo" 
-                            name="email" 
-                            autocomplete="off"
-                            value=<% if(err.length > 0){ %> 
-                                <%- err[0].data.email %>
-                            <%}%>""
-                        >
-                        <label 
-                            for="email" 
-                            class="unableToSelect"
-                        >Correo electr&oacute;nico</label>
-                        <span 
-                            aria-errormessage="true"
-                            class="helper-text"
-                            id="err-msg-ee"
-                        ></span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s4">
-                        <input 
-                            id="pw" 
-                            type="password" 
-                            name="password" 
-                            autocomplete="off"
-                            value=<% if(err.length > 0){ %> 
-                                <%- err[0].data.password %>
-                            <%}%>""
-                        >
-                        <label 
-                            for="pw" 
-                            class="unableToSelect"
-                        >Contrase&ntilde;a</label>
-                        <span 
-                            aria-errormessage="true"
-                            class="helper-text"
-                            id="err-msg-pdm"
-                        ></span>
-                    </div>
-                    <div class="input-field col s4">
-                        <input 
-                            id="cpwd" 
-                            type="password" 
-                            name="cpwd"
-                            autocomplete="off"
-                        >
-                        <label 
-                            for="cpwd" 
-                            class="unableToSelect"
-                        >Confirmaci&oacute;n</label>
-                        <span 
-                            aria-errormessage="true"
-                            class="helper-text"
-                            id="err-msg-pdm"
-                        ></span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s4">
-                        <a href="/">
-                            &iquest;Ya tienes una cuenta?<br/>
-                            Inicia sesi&oacute;n.
+<% if(mustConfirm){ %>
+    <!-- Aviso de Confirmación -->
+    <link rel="stylesheet" href="/styles/confirmacion.css">
+    <div role="main">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card border border-secondary">
+                    <h5 class="card-header bg-dark text-light">Confirmar Correo Electr&oacute;nico</h5>
+                    <div class="card-body">
+                      <h5 class="card-title">Sus datos han sido registrados</h5>
+                      <p class="card-text">Por favor entre a su correo electr&oacute;nico y valide su cuenta haciendo click en el enlace que le hemos env&iacute;ado.</p>
+                      <div class="text-right">
+                        <a 
+                            href="/" 
+                            role="button" 
+                            class="btn btn-primary" 
+                            style="position: right;"
+                        >Continuar
                         </a>
-                    </div>
-                    <div class="col s4">
-                        <button 
-                            type="submit" 
-                            value="Registrarme" 
-                            class="btn waves-effect waves-teal white-text blue"
-                        >
-                            Registrarme
-                        </button>
+                      </div>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
-</div>
-<script type="text/javascript" src="/scripts/register.vald.dev01.js"></script>
+<% } else { %>
+    <!-- Formulario de Registro -->
+    <div 
+        class="row smallrow valign-wrapper" 
+        style="min-height: 100vh;"
+    >
+        <div class="col s10 offset-s1 contenido-parent">
+            <div 
+                class="contenido m2" 
+                style="max-width: 800px;"
+            >
+                <form 
+                    action="/register" 
+                    method="post" 
+                    class="col s12 offset-s2"
+                >
+                    <div class="row">
+                        <!-- <div class="col s8">
+                            <%# JSON.stringify(err[0]) %>
+                        </div> -->
+                        <div 
+                            class="col s8" 
+                            style="padding:0px!important;"
+                        >
+                            <h3>Crea tu cuenta ${<%= mustConfirm %>}</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s8">
+                            <input 
+                                id="username" 
+                                type="text"
+                                name="username" 
+                                autocomplete="off" 
+                                style="min-width: 100%;"
+                                value=<% if(err.length > 0){ %> 
+                                    <%- err[0].data.username %>
+                                <%}%>""
+                            >
+                            <label 
+                                for="username" 
+                                class="unableToSelect"
+                            >Nombre de usuario</label>
+                            <span 
+                                aria-errormessage="true"
+                                class="helper-text"
+                                id="err-msg-ue"
+                            ></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s8">
+                            <input 
+                                id="email" 
+                                type="text" 
+                                class="smallnemo" 
+                                name="email" 
+                                autocomplete="off"
+                                value=<% if(err.length > 0){ %> 
+                                    <%- err[0].data.email %>
+                                <%}%>""
+                            >
+                            <label 
+                                for="email" 
+                                class="unableToSelect"
+                            >Correo electr&oacute;nico</label>
+                            <span 
+                                aria-errormessage="true"
+                                class="helper-text"
+                                id="err-msg-ee"
+                            ></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <input 
+                                id="pw" 
+                                type="password" 
+                                name="password" 
+                                autocomplete="off"
+                                value=<% if(err.length > 0){ %> 
+                                    <%- err[0].data.password %>
+                                <%}%>""
+                            >
+                            <label 
+                                for="pw" 
+                                class="unableToSelect"
+                            >Contrase&ntilde;a</label>
+                            <span 
+                                aria-errormessage="true"
+                                class="helper-text"
+                                id="err-msg-pdm"
+                            ></span>
+                        </div>
+                        <div class="input-field col s4">
+                            <input 
+                                id="cpwd" 
+                                type="password" 
+                                name="cpwd"
+                                autocomplete="off"
+                            >
+                            <label 
+                                for="cpwd" 
+                                class="unableToSelect"
+                            >Confirmaci&oacute;n</label>
+                            <span 
+                                aria-errormessage="true"
+                                class="helper-text"
+                                id="err-msg-pdm"
+                            ></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s4">
+                            <a href="/">
+                                &iquest;Ya tienes una cuenta?<br/>
+                                Inicia sesi&oacute;n.
+                            </a>
+                        </div>
+                        <div class="col s4">
+                            <button 
+                                type="submit" 
+                                value="Registrarme" 
+                                class="btn waves-effect waves-teal white-text blue"
+                            >
+                                Registrarme
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/scripts/register.vald.dev01.js"></script>
+<% } %> 
