@@ -36,9 +36,9 @@ module.exports.sendConfirmationMail = async ({ headers: { origin } }, { email })
             <div>
               <h4>Gracias por registrarte</h5>
               <h5>Ahora confirma tu sesion</h6>
-              <p>Haz click en el boton para confirmar tu cuenta, bienvenido a nuestra plataforma.</p>
+              <p>Haz click en "Continuar" para confirmar tu cuenta, bienvenido a nuestra plataforma.</p>
               <div style="text-align: right;">
-              <a href="${origin}/c/${token}"><button>Continuar</button></a>
+              <a href="${origin}/c/${token}">Continuar</a>
               </div>
             </div>
           </div>
