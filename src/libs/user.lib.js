@@ -32,16 +32,13 @@ module.exports.sendConfirmationMail = async ({ headers: { origin } }, { email })
             subject: 'Confirmación',
             html: `
             
-            <div style="width: 18rem; 
-                border-color: blue;
-                border-width: 1px;
-                border-style: solid;">
+            <div style="width: 18rem;">
             <div>
               <h4>Gracias por registrarte</h5>
               <h5>Ahora confirma tu sesion</h6>
               <p>Haz click en el boton para confirmar tu cuenta, bienvenido a nuestra plataforma.</p>
               <div style="text-align: right;">
-              <button><a href="${origin}/c/${token}">Continuar</a></button>
+              <a href="${origin}/c/${token}"><button>Continuar</button></a>
               </div>
             </div>
           </div>
