@@ -30,14 +30,18 @@ module.exports.sendConfirmationMail = async ({ headers: { origin } }, { email })
             to: email,
             from: USER_MAIL,
             subject: 'Confirmación',
-            html: `<h1>Confirmacion</h1>
-                <a
-                        href="${origin}/c/${token}" 
-                        role="button" 
-                        class="btn btn-primary" 
-                        style="position: right;"
-                    >Continuar
-                    </a>
+            html: `
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+            <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Gracias por registrarte</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Ahora confirma tu sesion</h6>
+              <p class="card-text">Haz click en el boton para confirmar tu cuenta, bienvenido a nuestra plataforma.</p>
+              <div class="text-right">
+              <a href="${origin}/c/${token}" class="card-link btn btn-primary">Continuar</a>
+              </div>
+            </div>
+          </div>
             `
             // <a>${origin}/c/${token}</a>
         }
