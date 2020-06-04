@@ -22,11 +22,19 @@
                         method="POST" 
                         class="col s12 offset-s1">
                         <div class="row">
-                            <% if(err.length > 0 && err[0].msg === '!ci!'){ %>
+                            <% if(err.length > 0){ %>
+                                <% if(err[0].msg === '!ci!'){ %> 
                                 <div class="col s10 center-align err-msg">
                                     <div>Lo sentimos, ha digitado credenciales incorrectas, int&eacute;ntelo nuevamente.</div>
                                 </div>
-                            <% } %> 
+                                <% } else if(err[0].msg === '!nc!') { %>
+                                    <div class="col s10 center-align err-msg">
+                                        <div style="text-align: left;">
+                                            Este usuario no ha sido confirmado por su due&ntilde;o. Si usted cre&oacute; esta cuenta recuerde verificar su correo electr&oacute;nico ingresando al mismo y accediendo al enlace que le hemos enviado, si no, no s&eacute; que est&aacute; intentando.
+                                        </div>
+                                    </div>
+                                <% } %>  
+                            <% } %>
                             <div class="input-field col s10">
                                 <input 
                                     type="text" 
@@ -42,7 +50,7 @@
                                 <label 
                                     for="username" 
                                     class="unableToSelect"
-                                >Nombre de usuario</label>
+                                >Nombre de usuario o email</label>
                             </div>
                             <div class="input-field col s10">
                                 <input 

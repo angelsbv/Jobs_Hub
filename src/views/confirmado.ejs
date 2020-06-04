@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="/styles/confirmacion.css">
+<div role="main">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card border border-secondary">
+                <h5 class="card-header bg-dark text-light">Correo Electr&oacute;nico Confirmado</h5>
+                <div class="card-body">
+                  <h5 class="card-title">Sus datos han sido confirmados</h5>
+                  <p class="card-text">Confirmado {querySelector(`${include('confirmado')}`)}</p>
+                  <div class="text-right">
+                    <a
+                        href="/" 
+                        role="button" 
+                        class="btn btn-primary" 
+                        style="position: right;"
+                    >Continuar
+                    </a>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
