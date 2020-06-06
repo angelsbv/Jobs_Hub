@@ -1,95 +1,56 @@
-<html>
-	<head>
+
 		<meta charset="utf-8">
-		<title>Work by category</title>
-		
-
-		<link rel="stylesheet" href="css/work%20by%20category.css">
-	</head>
-<body>
-
-	<div class="work_category-box">  
-        
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        
-		<!--Buscador-->
-        
-        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        
-        <input type = "text" placeholder="Live search"/>
-        <input type="button" value="Search"/>
-        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        
-        
-        <!--Boton de post job-->
-        
-        <input type = "button" value="Post job"/>
-        
-
-        
+    <title>Trabajo por categoria</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<link rel="stylesheet" href="../assets/styles/work_by_category.css">
+    <div class="contenedor work_category-box">  
+      <!--Buscador-->
+      <div class="buscador">
+        <form>
+            <div class="texto form-group mx-sm-3 mb-2">
+                <input class="form-control" type="text" placeholder="Live search" />
+            </div>
+            <button type="submit" class="boton botonsearch btn btn-primary mb-2">Search</button>
+        </form>
+        <button type="submit" class="boton btn btn-success">Post a Job</button>
+      </div>
+          
+      <div class="principal">
         <!--Programming-->
-        
-        <br/>
-        <br/>
-        <br/>
-        
-        <h4>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Programming</h4><hr>
-        
+        <h4>Programming</h4><hr>
+            
         <!--Creando tabla de programing-->
-        <table class = "tabla-programming" border="1px" width="600">
+        <table class="table tabla-programming">
+          <thead class="thead-light">
+            <tr>
+              <th>Location</th>
+              <th>Position</th>
+              <th>Company</th>
+            </tr>
+          </thead>
+          <tr>
+            <td>Paris France</td>
+            <td>Web Designer</td>
+            <td>Sensio Labs</td>
+          </tr>
+          <tr>
+            <td>Paris France</td>
+            <td>Web Designer</td>
+            <td>Sensio Labs</td>
+          </tr>
+        </table>
 
-  <tr>
-
-    <th>Location</th>
-
-    <th>Position</th>
-
-    <th>Company</th>
-
-  </tr>
-
-  <tr>
-
-    <td>Paris France</td>
-    <td>Web Designer</td>
-    <td>Sensio Labs</td>
-
-  </tr>
-
-  <tr>
-
-    <td>Paris France</td>
-    <td>Web Designer</td>
-    <td>Sensio Labs</td>
-      
-  </tr>
-
-</table>
-        
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        
         <!--conteo del numero de paginas-->
-        
-        <label for="Count_Jobs">33</label>
-        Jobs in this category - Page 
-        <label for="Count_Page">1/7</label>
-        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    
-        
-        <!--Botones de anterior y siguente-->
-        
-        
-        <input type="button" value="Previous"/>&nbsp&nbsp|&nbsp&nbsp
-        <input type="button" value="Next"/>
-        
-	</div>
+        <div class="conteoPaginas">
+          <label class="countjobs" for="Count_Jobs"><span>33</span></label>
+          Jobs in this category - Page 
+          <label class="countpage" for="Count_Page"><span>1/7</span></label>
+        </div>
 
-</body>
-</html>
+        <!--Botones de anterior y siguente-->
+        <div class="botonespaginacion">
+          <button class="btn btn-secondary" type="button">Previous</button>
+          <button class="btn btn-secondary" type="button">Next</button>
+        </div>
+      </div>
+    </div>

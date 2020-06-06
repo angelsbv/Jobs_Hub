@@ -1,0 +1,125 @@
+*, *:after, *:before
+{
+    box-sizing: inherit;
+}
+
+img
+{
+	max-width: 100%;
+}
+
+h2
+{
+	margin-top: 5px;
+}
+
+.grid
+{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.columna-10
+{
+	flex: 0 0 calc(83.3% - 1rem);
+}
+
+.centrar-columna
+{
+	justify-content: center;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	background-color: #FFFEFB;
+	font-family: sans-serif;
+	height: 100vh;
+}
+
+.buscador 
+{
+	display: flex;
+	justify-content: space-between;
+	margin: 35px 15px 0 15px;
+}
+
+.botonsearch
+{
+	margin-top: 5px;
+	margin-left: 15px;
+}
+
+.texto
+{
+	display: inline-block;
+}
+
+.principal
+{
+	display: flex;
+	margin: 20px 15px 0 15px;
+}
+
+.contenedor
+{
+	width: 95%;
+	margin: 0 auto;
+	max-width: 1200px;
+}
+
+.formulario-contacto
+{
+    padding: 5rem;
+    background-color: #ffffff;
+}
+
+@media(min-width: 768px)
+{
+	.formulario-contacto
+	{
+		margin-top: -15px;
+	}
+
+	.formulario-contacto textarea
+	{
+		width: 45rem;
+	}
+}
+
+.formulario-contacto .campo
+{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+.formulario-contacto .mensaje
+{
+    align-items: baseline;
+}
+
+.formulario-contacto .campo label
+{
+    flex: 0 0 8rem;
+}
+
+.formulario-contacto .campo input:not([type="submit"]), .formulario-contacto textarea
+{
+    flex: 1;
+    padding: 1rem;
+    border: 1px solid #e1e1e1;
+}
+
+.formulario-contacto textarea
+{
+	height: 20rem;
+}
+
+.formulario-contacto .enviar
+{
+    display: flex;
+    justify-content: flex-end;
+}   
