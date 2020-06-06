@@ -1,75 +1,84 @@
-<html>
-	<head>
+
 		<meta charset="utf-8">
-		<title>Principal</title>
-		
-
-		<link rel="stylesheet" href="css/post%20a%20job.css">
-	</head>
-<body>
-
-	<div class="post_job-box">  
-        
-        <br/>
-        <br/>
-        <br/>
-        
-		<!--Buscador-->
-        
-        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        
-        <input type = "text" placeholder="Live search"/>
-        <input type="button" value="Search"/>
-        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        
-        
-        <!--Boton de post job-->
-        
-        <input type = "button" value="Post job"/>
-        
-        
-        <!--Post a Job-->
-        
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        
-        <h2> Post a Jobs</h2>
-        
-        
-        <!--Creando las opciones para postear un trabajo-->
-        
-        
-        <label>Category</label> aqui va una lista despligable
-        <br>
-        <label>Type</label> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            <input type="radio" value="full time"/>Full time
-                            <input type="radio" value="part time"/>part time
-                            <input type="radio" value="freelance"/>freelance
-        
-        <br>
-        <label>Company</label> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                                <input type="textbox" value=""/>
-        <br>
-        <label>Logo</label> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                                <input type="textbox" value=""/>
-        <br>
-        <label>URL</label> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                                <input type="textbox" value=""/>
-        <br>
-        <label>position</label> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                                <input type="textbox" value=""/>
-        <br>
-        <label>Location</label> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                                <input type="text" value=""/>
-        <br>
-        <label>Description</label> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        <textarea name="comentarios" rows="10" cols="40">Escribe aquí tus comentarios</textarea>
-        
-        
-	</div>
-
-</body>
-</html>
+		<title>Publicar un trabajo</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<link rel="stylesheet" href="../assets/styles/post_a_job.css">
+    <header>
+      <div class="contenedor">
+        <!--Buscador-->
+        <div class="buscador">
+          <form>
+              <div class="texto form-group mx-sm-3 mb-2">
+                  <input class="form-control" type="text" placeholder="Live search" />
+              </div>
+              <button type="submit" class="boton botonsearch btn btn-primary mb-2">Search</button>
+          </form>
+          <button type="submit" class="boton botonpost btn btn-success">Post a Job</button>
+      </div>
+    </header>
+          
+      <main class="contenedor">
+        <h2 class="centrar">Anunciar un trabajo</h2>
+        <div class="grid centrar-columna">
+            <div class="formulario-contacto columna-10">
+                <form action="">
+                    <div class="campo">
+                        <label for="categoria">Categoria</label>
+                        <select class="custom-select">
+                          <option selected>-- Elegir --</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="tipo">Tipo</label>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio1">Full time</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio2">Part time</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio3">Freelancer</label>
+                        </div>
+                    </div>
+                    <div class="campo">
+                      <label for="compañia">Compañia</label>
+                      <input id="email" type="email" placeholder="Su email aqui...">
+                    </div>
+                    <div class="campo">
+                      <label for="logo">Logo</label>
+                      <input id="email" type="email" placeholder="Su email aqui...">
+                    </div>
+                    <div class="campo">
+                      <label for="url">URL</label>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+                        </div>
+                        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                      </div>
+                    </div>
+                    <div class="campo">
+                      <label for="posicion">Posicion</label>
+                      <input class="form-control" id="text" type="text" placeholder="Su email aqui...">
+                    </div>
+                    <div class="campo mensaje">
+                        <label for="Compañia">Descripcion</label>
+                        <div class="form-group">
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="campo enviar">
+                        <button class="btn btn-success">
+                          Publicar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
