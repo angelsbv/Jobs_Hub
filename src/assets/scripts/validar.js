@@ -8,6 +8,14 @@
 
 function validate()
 {
+    var text = document.getElementById('pw');
+
+    text.addEventListener( 'keyup',(event) =>{
+    
+       var inputText = event.path[0].value;
+      // document.querySelector('.mostrar').innerHTML = inputText;
+    });
+
     var erroresMSM = [];
 
     if(pw.value == null)
@@ -28,5 +36,5 @@ function validate()
            }
     })
 
-    return false;
+   
 }
