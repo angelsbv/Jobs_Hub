@@ -21,8 +21,8 @@ CREATE TABLE trabajo
     ubicacion VARCHAR(50) NOT NULL,
     posicion VARCHAR(50) NOT NULL,
     compañia VARCHAR(50) NOT NULL,
-    fecha date NOT NULL
-	
+    fecha date NOT NULL,
+	categoria VARCHAR(50) NOT NULL
 );
 
 ALTER TABLE trabajo
@@ -47,6 +47,4 @@ CREATE TABLE TIPO
 	
 );
 
-ALTER TABLE enviarPuestoJob ADD FOREIGN KEY (IDJOB) REFERENCES TRABAJO(ID)
-
-
+ALTER TABLE enviarPuestoJob ADD FOREIGN KEY (IDJOB) REFERENCES TRABAJO(ID);
