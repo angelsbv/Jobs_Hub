@@ -1,0 +1,23 @@
+div[role="main"]{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+}
+
+.col-md-6{
+    min-width: 562px;
+}
+
+@media only screen and (max-width: 562px){
+    .col-md-6{
+        min-width: .1px;
+    }
+}
