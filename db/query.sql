@@ -21,7 +21,7 @@ CREATE TABLE trabajo
     ubicacion VARCHAR(50) NOT NULL,
     posicion VARCHAR(50) NOT NULL,
     compañia VARCHAR(50) NOT NULL,
-    fecha date NOT NULL,
+    fecha date NOT NULL
 	
 );
 
