@@ -113,14 +113,6 @@ router.get('/c/:token', (req, res, next) => {
     });
 });
 
-router.use((req, res, next) => {
-    // res.status(404).render('layout', {
-    //     page: 'error/error-404',
-    //     title: 'Error 404'
-    // });
-    res.status(404).send('Error 404');
-});
-
 module.exports.isAuth = isAuth = (req) => (req.isAuthenticated() ? true : false);
 
 module.exports = router;
