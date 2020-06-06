@@ -3,9 +3,11 @@ USE p3_web;
 
 CREATE TABLE users(
     ID int(11) NOT NULL,
-    username varchar(21) NOT NULL,
-    email varchar(255) NOT NULL,
-    password varchar(255) NOT NULL
+    username VARCHAR(21) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    emailConfirmationCode VARCHAR(255),
+    emailConfirmed BOOLEAN
 );
 
 ALTER TABLE users

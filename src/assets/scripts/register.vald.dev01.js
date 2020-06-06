@@ -62,3 +62,20 @@ const cpwdChangeHandler = () => {
 email.addEventListener('change', emailChangeHandler);
 username.addEventListener('change', usernameChangeHandler);
 cpwd.addEventListener('change', cpwdChangeHandler);
+
+function validate()
+{
+    const pw = document.getElementById("pw");
+    const cpw = document.getElementById("cpw");
+    const email = document.getElementById("mail");
+    const form = document.getElementById("form");
+
+    form.addEventListener("submit", e=>
+    {
+           e.defaultPrevented();
+           if(pw.nodeValue,length <6)
+           {
+               alert("Contraseña muy debil")
+           }
+    })
+}
