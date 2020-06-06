@@ -15,3 +15,38 @@ ALTER TABLE users
 
 ALTER TABLE users MODIFY ID int(11) AUTO_INCREMENT, AUTO_INCREMENT = 1;
 
+CREATE TABLE trabajo 
+(
+    ID int (11) NOT null,
+    ubicacion VARCHAR(50) NOT NULL,
+    posicion VARCHAR(50) NOT NULL,
+    compañia VARCHAR(50) NOT NULL,
+    fecha date NOT NULL,
+	
+);
+
+ALTER TABLE trabajo
+    ADD PRIMARY KEY (ID);
+
+ALTER TABLE trabajo MODIFY ID int(11) AUTO_INCREMENT, AUTO_INCREMENT = 1;
+
+CREATE TABLE enviarPuestoJob
+(
+    ID int(11) NOT NULL,
+	GMAIL VARCHAR(50) NOT NULL,
+	URLapp VARCHAR(100),
+	IDJOB INT
+    
+);
+
+CREATE TABLE TIPO
+(
+    TiempoFull varchar(10) NOT NULL,
+	TiempoMedio varchar(10) NOT NULL,
+	FREELANCE VARCHAR(10) NOT NULL
+	
+);
+
+ALTER TABLE enviarPuestoJob ADD FOREIGN KEY (IDJOB) REFERENCES TRABAJO(ID)
+
+
