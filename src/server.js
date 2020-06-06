@@ -43,7 +43,16 @@ app.use((req, res, next) => {
 
 // Routes
 app.use('/', require('./routes/index.routes'));
-app.use('/jobs', require('./routes/jobs.routes'));
+app.use('/job', require('./routes/jobs.routes'));
+
+// Error 404
+app.use((req, res, next) => {
+    // res.status(404).render('layout', {
+    //     page: 'error/error-404',
+    //     title: 'Error 404'
+    // });
+    res.status(404).send('Error 404');
+});
 
 // Starting server
 app.listen(app.get('port'), () => console.log(`Server on port ${app.get('port')}`))
