@@ -1,21 +1,12 @@
-<link rel="stylesheet" href="/styles/login.css" />
+<link rel="stylesheet" href="../assets/styles/login.css" />
 <title>Login</title>
-<div 
-    class="valign-wrapper" 
-    style="min-height: 100vh;"
->
-    <div 
-        class="container loginsbc-container" 
-        style="max-width: 717px;"
-    >
+<div class="valign-wrapper" style="min-height: 100vh;">
+    <div class="container loginsbc-container" style="max-width: 717px;">
         <div class="row _sag3">
             <div class="col s12 _sag4">
-                <div 
-                    id="content" 
-                    class="m2"
-                >
+                <div id="content" class="m2">
                     <div class="light-blue darken-2 login-header">
-                        <span class="_spn0x24header">Digite sus datos de autenticaci&oacute;n</span>
+                        <span class="_spn0x24header">Digite sus datos de autenticacion</span>
                     </div>
                     <form 
                         action="/login" 
@@ -24,7 +15,7 @@
                         <div class="row">
                             <% if(err.length > 0 && err[0].msg === '!ci!'){ %>
                                 <div class="col s10 center-align err-msg">
-                                    <div>Lo sentimos, ha digitado credenciales incorrectas, int&eacute;ntelo nuevamente.</div>
+                                    <div>Lo sentimos, ha digitado credenciales incorrectas, intentelo nuevamente.</div>
                                 </div>
                             <% } %> 
                             <div class="input-field col s10">
@@ -36,13 +27,9 @@
                                     autocomplete="off"
                                     value=<% if(err.length > 0){ %> 
                                             <%- err[0].username %>
-                                        <%}%>""
-                                />
+                                        <%}%>""/>
 
-                                <label 
-                                    for="username" 
-                                    class="unableToSelect"
-                                >Nombre de usuario</label>
+                                <label for="username" class="unableToSelect">Nombre de usuario</label>
                             </div>
                             <div class="input-field col s10">
                                 <input 
@@ -50,13 +37,9 @@
                                     name="password" 
                                     id="password" 
                                     autocapitalize="off" 
-                                    autocomplete="off"
-                                />
-                                <label 
-                                    for="password"
-                                    class="unableToSelect"
-                                >
-                                    Contrase&ntilde;a
+                                    autocomplete="off"/>
+                                <label for="password" class="unableToSelect">
+                                    Contraseña
                                 </label>
                             </div>
                             <div class="col s10">
