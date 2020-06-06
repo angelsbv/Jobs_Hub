@@ -7,9 +7,9 @@ const passport = require('passport');
 const session = require('express-session');
 const MySQLSessionStore = require('express-mysql-session');
 const layouts = require('express-ejs-layouts');
-
-const app = express();
 const flash = require('connect-flash');
+require('dotenv').config();
+const app = express();
 
 require('./db');
 require('./auth/local.auth');
