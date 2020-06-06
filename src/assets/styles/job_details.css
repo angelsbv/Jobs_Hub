@@ -1,0 +1,58 @@
+*,
+*:after,
+*:before {
+    box-sizing: inherit;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	background-color: #FFFEFB;
+	font-family: sans-serif;
+	font-size: 1rem;
+	line-height: 2rem;
+	height: 100vh;
+}
+
+.principal
+{
+	margin: 27px 15px 0 15px;
+}
+
+.logo { 
+    padding: 5px; 
+    margin: 5px; 
+    border: 2px solid black; 
+    float: right; 
+    width: 230px;
+}
+
+.buscador
+{
+	display: flex;
+	justify-content: space-between;
+	margin-right: 15px;
+}
+
+.buscador .texto
+{
+	display: inline-block;
+}
+
+.buscador input
+{
+	margin-top: 20px;
+	margin-left: 0;
+	width: 15rem;
+}
+
+.buscador .botonsearch
+{
+	margin-top: 5px;
+}
+
+.buscador .botonpost
+{
+	margin-top: 15px;
+}
+

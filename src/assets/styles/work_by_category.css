@@ -1,0 +1,58 @@
+body{
+	margin: 0;
+	padding: 0;
+	background-color: #FFFEFB;
+	font-family: sans-serif;
+	height: 100vh;
+}
+
+.contenedor
+{
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.principal
+{
+	margin-top: 20px;
+}
+
+.buscador
+{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 15px;
+}
+
+.botonsearch
+{
+	margin-top: 5px;
+}
+
+.buscador .texto
+{
+	display: inline-block;
+}
+
+.conteoPaginas
+{
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 20px;
+}
+
+.conteoPaginas .countjobs span
+{
+	color: 4AD100;
+}
+
+.conteoPaginas .countpage span
+{
+	color: 0048D1;
+}
+
+.botonespaginacion
+{
+	display: flex;
+	justify-content: space-between;
+}
