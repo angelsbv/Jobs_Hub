@@ -34,6 +34,7 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 app.use(layouts);
 app.use((req, res, next) => {
     app.locals.err = req.flash('err');
@@ -47,11 +48,9 @@ app.use('/job', require('./routes/jobs.routes'));
 
 // Error 404
 app.use((req, res, next) => {
-    // res.status(404).render('layout', {
-    //     page: 'error/error-404',
-    //     title: 'Error 404'
-    // });
-    res.status(404).send('Error 404');
+    res.status(404).render('error-404', {
+        layout: 'layouts/M'
+    });
 });
 
 // Starting server
