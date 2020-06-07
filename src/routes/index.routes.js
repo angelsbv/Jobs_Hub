@@ -18,6 +18,7 @@ const pool = require('../db');
 const { CONFIRMATION_CODE_KEY } = process.env;
 const { sendConfirmationMail } = require('../libs/user.lib');
 
+
 router.get('/', (req, res) => {
     if(isAuth(req)){
         res.render('index', {
@@ -30,6 +31,32 @@ router.get('/', (req, res) => {
         });
     }
 });
+
+router.post('/user-exists', async (req, res) => {
+    try {
+        let query = `SELECT * FROM users WHERE {condition}`
+        const { username, email } = req.body;
+        query = query.replace('{condition}', (
+            undefined !== username 
+            ? `username = '${username}'`
+            : `email = '${email}'`
+        ));
+        const [user] = await pool.query(query);
+        let exists = (user !== undefined)
+        res.json({
+            ok: true,
+            exists
+        });
+    } catch (error) {
+        console.error(error);
+        res.json({
+            ok: false,
+            error: 'Hubo un error con su solicitud',
+            fecha: new Date().toLocaleString()
+        })
+    }
+});
+
 
 router.get('/register', (req, res) => {
     if(!isAuth(req)){

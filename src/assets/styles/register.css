@@ -61,6 +61,11 @@
     }
 }
 
+.helper-text{
+    min-height: 0.001px !important;
+    font-size: 13.5px !important;
+}
+
 .smallglass{
     width: 100%;
     opacity: 0.85;
@@ -79,5 +84,25 @@ button[value="Registrarme"]{
 }
 
 span[aria-errormessage="true"]{
-    color: #f32736 !important;
+    color: rgb(243, 39, 54) !important;
+}
+
+.verify-user{
+    display: none;
+    color: #2196F3;
+    align-items: center;
+    font-size: 13.5px;
+}
+
+.verify-user.visible{
+    display: flex !important;
+}
+
+.progress{
+    margin: 0 0 0 8px;
+    width: 84% !important;
+}
+
+.progress.hidden{
+    display: none;
 }
