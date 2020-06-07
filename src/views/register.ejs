@@ -62,9 +62,6 @@
                     id="form"
                 >
                     <div class="row">
-                        <!-- <div class="col s8">
-                            <%# JSON.stringify(err[0]) %>
-                        </div> -->
                         <div 
                             class="col s8" 
                             style="padding:0px!important;"
@@ -80,6 +77,7 @@
                                 name="username" 
                                 autocomplete="off" 
                                 style="min-width: 100%;"
+                                aria-placeholder="usuario"
                                 value=<% if(err.length > 0){ %> 
                                     <%- err[0].data.username %>
                                 <%}%>""
@@ -93,6 +91,21 @@
                                 class="helper-text"
                                 id="err-msg-ue"
                             ></span>
+                            <div 
+                                class="verify-user" 
+                                role="alert[username]" 
+                            >
+                                <span 
+                                    id="verify-user-msg"
+                                    role="alert[username]"
+                                >Verificando...</span>
+                                <div 
+                                    class="progress blue lighten-4"
+                                    role="alert[username]"
+                                >
+                                    <div class="indeterminate blue"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -103,6 +116,7 @@
                                 class="smallnemo" 
                                 name="email" 
                                 autocomplete="off"
+                                aria-placeholder="correo electrónico"
                                 value=<% if(err.length > 0){ %> 
                                     <%- err[0].data.email %>
                                 <%}%>""
@@ -116,12 +130,27 @@
                                 class="helper-text"
                                 id="err-msg-ee"
                             ></span>
+                            <div 
+                                class="verify-user" 
+                                role="alert[email]" 
+                            >
+                                <span 
+                                    id="verify-user-msg"
+                                    role="alert[email]"
+                                >Verificando...</span>
+                                <div 
+                                    class="progress blue lighten-4"
+                                    role="alert[email]"
+                                >
+                                    <div class="indeterminate blue"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s4">
                             <input 
-                                id="pw" 
+                                id="password" 
                                 type="password" 
                                 name="password" 
                                 autocomplete="off"
@@ -136,7 +165,7 @@
                             <span 
                                 aria-errormessage="true"
                                 class="helper-text"
-                                id="err-msg-pdm"
+                                id="err-msg-pml"
                             ></span>
                         </div>
                         <div class="input-field col s4">
@@ -169,18 +198,15 @@
                                 type="submit" 
                                 value="Registrarme" 
                                 class="btn waves-effect waves-teal white-text blue"
-                                onclick='validate()' 
                             >
                                 Registrarme
                             </button>
                         </div>
                     </div>
                 </form>
-                <div id="error"></div>
             </div>
         </div>
     </div>
 
     <script type="text/javascript" src="/scripts/register.vald.dev01.js"></script>
-    <script type="text/javascript" src="/scripts/validar.js"></script>
 <% } %> 
