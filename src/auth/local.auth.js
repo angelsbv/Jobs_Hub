@@ -15,9 +15,10 @@ const buildSearchUserQuery = (username = null) => (email = null) => (
     Errores
     * !e!: email registrado
     * !u!: username registrado
-    * !pdm!: contraseña y confirmación distintas
+    * !pdm!: (Passwords Didn't Match) contraseña y confirmación distintas
     * !ci!: credenciales incorrectas (username/email o password)
     * !nc!: no confirmado
+    * !pml!: (Password Minlength) contraseña no tiene 6 o mas digitos
 */
 
 const usernameExists = async (username) => {
@@ -50,6 +51,7 @@ passport.use('local-signup', new LocalStrategy({
     if (await usernameExists(username)) errs.push('!u!', ':');
     if (await emailExists(email)) errs.push('!e!', ':');
     if (password !== cpwd) errs.push('!pdm!', ':');
+    if(password.length < 6) errs.push('!pml!', ':');
     if (errs.length > 0) {
         done(null, false, req.flash('err', { errCodes: errs, data: req.body }));
     }
