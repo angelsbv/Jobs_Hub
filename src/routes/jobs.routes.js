@@ -8,11 +8,10 @@
 */
 
 const router = require('express').Router();
-
+const pool = require('../db');
 const bLayout = 'layouts/B';
-const mLayout = 'layouts/M';
 
-router.get('/post', (req, res) => {
+router.get('/post-a-job', (req, res) => {
     res.render('post-job', {
         layout: bLayout
     });
@@ -27,7 +26,100 @@ router.get('/details', (req, res) => {
 router.get('/category', (req, res) => {
     res.render('job-category', {
         layout: bLayout
-    })
-})
+    });
+});
+
+router.get('/get/:id', async (req, res, next) => {
+    try {
+        const { id } = req.params
+        const [job] = await pool.query(`SELECT * FROM trabajo WHERE ID = ${id}`);
+        job !== undefined
+        ? res.json(job)
+        : next()
+    } catch (error) {
+        console.error(error);
+        res.json({ 
+            error: 'Hubo un error; nada grave, pero intenta luego',
+            fecha: new Date().toLocaleString()
+        });
+    }
+});
+
+router.get('/get-all', async (req, res) => {
+    try {
+        const jobs = await pool.query('SELECT * FROM trabajo');
+        res.json(jobs);
+    } catch (error) {
+        console.error(error);   
+        res.json({
+            error: 'No pudimos conseguirle esta informacion :(',
+            fecha: new Date().toLocaleString()
+        });
+    }
+});
+
+router.post('/add', async (req, res) => {
+    try {
+        const { body } = req;
+        await pool.query('INSERT INTO trabajo SET ?', body);
+        res.json({
+            ok: true,
+            agregado: true,
+            body
+        });
+    } catch (error) {
+        console.error(error);
+        res.json({
+            ok: false,
+            agregado: false,
+            error: 'Imposible agregar este usuario actualmente :/',
+            info: 'console',
+            fecha: new Date().toLocaleString()
+        });
+    }
+});
+
+router.put('/edit/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { body } = req;
+        await pool.query('UPDATE trabajo SET ? WHERE ID = '+id, body);
+        res.json({
+            ok: true,
+            editado: true,
+            jobID: id,
+            newData: body
+        })
+    } catch (error) {
+        console.error(error);
+        res.json({
+            ok: false,
+            agregado: false,
+            error: 'Este usuario no se quiere editar, lo estamos intentado :(',
+            info: 'console',
+            fecha: new Date().toLocaleString()
+        });
+    }
+});
+
+router.delete('/remove/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        await pool.query('DELETE FROM trabajo WHERE id = ?', id);
+        res.json({
+            ok: true,
+            eliminado: true,
+            "bye :(": body
+        })
+    } catch (error) {
+        console.error(error);
+        res.json({
+            ok: false,
+            agregado: false,
+            error: 'No pudimos eliminar este usuario :(',
+            fecha: new Date().toLocaleString()
+        });
+    }
+});
 
 module.exports = router;
