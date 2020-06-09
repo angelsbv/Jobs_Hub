@@ -25,7 +25,7 @@ CREATE TABLE trabajo
 	categoria VARCHAR(50) NOT NULL,
     tipo varchar(50) NOT NULL,
     logo varchar(255) NOT NULL,
-    descripcion VARCHAR(255)
+    descripcion VARCHAR(1600)
 );
 
 ALTER TABLE trabajo

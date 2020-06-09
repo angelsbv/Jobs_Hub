@@ -1,11 +1,13 @@
 let params = (new URL(location.href)).searchParams;
-console.log(params.get('id'));
-const myId = params.get('id');
+
+let myId = params.get('id');
+console.log(myId);
 
 function traerDatos() {
     
     const xhttp = new XMLHttpRequest();
     xhttp.open('GET','/job/get/'+myId,true);
+    
 
     xhttp.send();
 
@@ -31,5 +33,8 @@ function traerDatos() {
         }
     }
 }
-
+if(myId == null){
+    window.location="http://localhost:3000/error404";
+}else{
 traerDatos();
+}
