@@ -6,6 +6,7 @@ CREATE TABLE users(
     username VARCHAR(21) NOT NULL,
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
+    userRol int,
     emailConfirmationCode VARCHAR(255),
     emailConfirmed BOOLEAN
 );
