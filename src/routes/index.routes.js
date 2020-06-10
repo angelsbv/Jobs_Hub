@@ -32,15 +32,25 @@ router.get('/', (req, res) => {
     }
 });
 
-router.post('/user-exists', async (req, res) => {
+router.post('/verify-data', async (req, res) => {
     try {
-        let query = `SELECT * FROM users WHERE {condition}`
-        const { username, email } = req.body;
-        query = query.replace('{condition}', (
-            undefined !== username 
-            ? `username = '${username}'`
-            : `email = '${email}'`
-        ));
+        const { username, email, empresa, emailEmpresa } = req.body;
+        let query = `SELECT * FROM {table} WHERE {condition}`
+        if(username || email){
+            query = query.replace('{condition}', (
+                undefined !== username 
+                ? `username = '${username}'`
+                : `email = '${email}'`
+            )).replace('{table}', 'users');
+        }
+        else if(empresa || emailEmpresa){
+            query = query.replace('{condition}', (
+                undefined !== empresa
+                ? `empresa = '${empresa}'`
+                : `emailEmpresa = '${emailEmpresa}'`
+            )).replace('{table}', 'posterInfo')
+        }
+        console.log(query);
         const [user] = await pool.query(query);
         let exists = (user !== undefined)
         res.json({
@@ -56,7 +66,6 @@ router.post('/user-exists', async (req, res) => {
         })
     }
 });
-
 
 router.get('/register', (req, res) => {
     if(!isAuth(req)){

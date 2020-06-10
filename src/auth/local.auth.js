@@ -46,7 +46,15 @@ passport.use('local-signup', new LocalStrategy({
     passReqToCallback: true
 }, async (req, username, password, done) => {
     //cpwd = confirm password
-    const { email, cpwd } = req.body;
+    const { 
+        email, 
+        cpwd, 
+        isPoster, 
+        empresa, 
+        emailEmpresa, 
+        telefonoEmpresa
+    } = req.body;
+
     const errs = [];
     if (await usernameExists(username)) errs.push('!u!', ':');
     if (await emailExists(email)) errs.push('!e!', ':');
@@ -56,9 +64,19 @@ passport.use('local-signup', new LocalStrategy({
         done(null, false, req.flash('err', { errCodes: errs, data: req.body }));
     }
     else {
-        const newUser = { username, password, email, emailConfirmed: false }
+        const newUser = { 
+            username, 
+            password,
+            email, 
+            emailConfirmed: false,
+            userRol: (isPoster ? 1 : 0)
+        };
         newUser.password = hashpwd(password);
-        await pool.query('INSERT INTO users SET ?', newUser);
+        const { insertId: userID } = await pool.query('INSERT INTO users SET ?', newUser);
+        const newPoster = { empresa, emailEmpresa, telefonoEmpresa, userID };
+        if(isPoster)
+            await pool.query('INSERT INTO posterInfo SET ?', newPoster)
+        
         done(null, newUser);
     }
 }));

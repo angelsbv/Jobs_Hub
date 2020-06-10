@@ -10,6 +10,15 @@ const email = document.querySelector('#email');
 const username = document.querySelector('#username');
 const pwd = document.querySelector('#password');
 const cpwd = document.querySelector('#cpwd');
+const registerAsPoster = document.querySelector('#registerAsPoster');
+const btnSubmit = document.querySelector('.btn-submit');
+const empresa = document.querySelector('#empresa');
+const emailEmpresa = document.querySelector('#email-empresa');
+const telefonoEmpresa = document.querySelector('#telefono-empresa');
+const userForm = document.querySelector('#user-form');
+const posterForm = document.querySelector('#poster-form');
+const formTitle = document.querySelector('#form-title');
+const btnBack = document.querySelector('#btn-back')
 const errUE = document.querySelector('#err-msg-ue');
 const errEE = document.querySelector('#err-msg-ee');
 const errPDM = document.querySelector('#err-msg-pdm');
@@ -17,6 +26,7 @@ const errPML = document.querySelector('#err-msg-pml');
 
 let errCodes = document.querySelector("#__c24_0ds_").innerHTML;
 let timerID = null;
+let willRegisterAsPoster = false;
 
 //
 const msgErrUE = 'Este nombre de usuario ya existe, intente con uno distinto.';
@@ -127,8 +137,7 @@ const pwdBlurHandler = () => {
         pwd.classList.remove('invalid');
 }
 
-// En esta función => data se refiere a username y email
-const userDataVerification = async (elem, verifyUser, valid) => {
+const dataVerification = async (elem, verifyUser, valid) => {
     try {
         const { id } = elem;
         let progressBar = document.querySelector(`.progress[role="alert[${id}]"]`);
@@ -139,8 +148,12 @@ const userDataVerification = async (elem, verifyUser, valid) => {
         verifyUserMsg.innerHTML = 'Verificando...';
         verifyUserMsg.style.color = '#2196F3';
 
-        let body = (id === 'username' ? { username: elem.value } : { email: elem.value });
-        const resp = await fetch('/user-exists',{
+        let body = null;
+        if(posterForm.classList.contains('visible'))
+            body = (id === 'empresa' ? { empresa: elem.value } : { emailEmpresa: elem.value });
+        else
+            body = (id === 'username' ? { username: elem.value } : { email: elem.value });
+        const resp = await fetch('/verify-data',{
             method: 'POST',
             credentials: 'same-origin',
             body: JSON.stringify(body),
@@ -148,17 +161,23 @@ const userDataVerification = async (elem, verifyUser, valid) => {
                 "Content-Type": "application/json"
             }
         });
-        
         let { exists } = await resp.json();
-        if(body.email !== undefined && !valid) exists = true;
-        if(body.username !== undefined && !valid) exists = true;
+
+        for(let i in body){
+            if(body[i] !== undefined && !valid) exists = true;
+        }
         setTimeout(() => {
             progressBar.classList.add('hidden');
-
             let msg = `Este ${elem.ariaPlaceholder} no est\u00E1 disponible.`;
-            if(id === 'email' && !valid) msg = msg.replace('.', ' o no es correcto.');
-            if(id === 'username' && !valid) msg = 'Los nombres de usuario deben tener 3 o m\u00E1s d\u00EDgitos.'
-            verifyUserMsg.innerHTML = (exists ? msg : msg.replace('no', ''));
+            if(id === 'email' && !valid)
+                msg = msg.replace('.', ' o no es correcto.');
+            if(id === 'email-empresa' && !valid)
+                msg = msg.replace('.', ' o no es correcto.');
+            if(id === 'username' && !valid)
+                msg = 'Los nombres de usuario deben tener 3 o m\u00E1s d\u00EDgitos.';
+            if(id === 'empresa' && !valid)
+                msg = 'Los nombres de empresa deben tener 3 o m\u00E1s d\u00EDgitos.';
+            verifyUserMsg.innerHTML = (exists ? msg : msg.replace(' no ', ' '));
             verifyUserMsg.style.color = (exists ? '#f32736' : '#4CAF50');
             elem.classList.add((exists ? 'invalid' : 'valid'));
         }, 550);
@@ -167,7 +186,6 @@ const userDataVerification = async (elem, verifyUser, valid) => {
     }
 }
 
-// En esta función => data se refiere a username y email
 const userDataKeyupHandler = (e) => {
     // key: "Tab"
     // keyCode: 9
@@ -178,14 +196,20 @@ const userDataKeyupHandler = (e) => {
     if(elem.value){
         verifyUser.classList.remove('visible');
         timerID = setTimeout(() => { 
-            if(elem.id === 'email'){
-                // Validar email
-                const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                userDataVerification(elem, verifyUser, regex.test(elem.value));
-            }
-            else{
-                // Username debe tener mas de 3 caracteres
-                userDataVerification(elem, verifyUser, (elem.value.length >= 3));
+            switch(elem.id){
+                case 'email':
+                case 'email-empresa':
+                    // Validar email(s)
+                    const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                    dataVerification(elem, verifyUser, regex.test(elem.value));
+                    break;
+                case 'username':
+                case 'empresa':
+                    // Username y empresa deben tener 3 o más letras
+                    dataVerification(elem, verifyUser, (elem.value.length >= 3));
+                    break;
+                default:
+                    throw new Error('Invalid');
             }
         }, 600);
     }else{
@@ -194,29 +218,92 @@ const userDataKeyupHandler = (e) => {
     }
 }
 
-// const observer = new MutationObserver((mutations) => {
-//     mutations.forEach(m => {
-//         if(m.attributeName === 'class'){
-//             console.log(m);
-//         }
-//     })
-// });
+const registerAsPosterClickHandler = (e) => {
+    willRegisterAsPoster = e.target.checked;
+    btnSubmit.innerHTML = (willRegisterAsPoster ? 'Continuar' : 'Registrarme');
+}
+
+const btnBackClickHandler = () => {
+    userForm.classList.remove('hidden')
+    posterForm.classList.remove('visible');
+    formTitle.innerHTML = 'Crea tu cuenta';
+    btnSubmit.innerHTML = 'Siguiente';
+}
+
+const telefonoEmpresaBlurHandler = (e) => {
+    const { target: { classList: elem } } = e;
+    const errfb = document.querySelector(`span[aria-errormessage="err-fb[${e.target.id}]"]`)
+    const regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+    if(!regex.test(e.target.value)){
+        errfb.innerHTML = 'Debe digitar un n\u00FAmero telef\u00F3nico v\u00E1lido.';
+        elem.add('invalid');
+        errfb.style.color = '#f32736';
+    }else{
+        errfb.innerHTML = 'Este n\u00FAmero telef\u00F3nico es v\u00E1lido.';
+        elem.remove('invalid');
+        elem.add('valid')
+        errfb.setAttribute('style', 'color: #4CAF50 !important;');
+    }
+}
+
+const fieldChangeHandler = (e) => {
+    const errfb = document.querySelector(`span[aria-errormessage="err-fb[${e.target.id}]"]`);
+    if(errfb) errfb.innerHTML = '';
+}
 
 const formSubmitHandler = (e) => {
     e.preventDefault();
+    const userFields = document.querySelectorAll('.user-field');
+    for(let i = 0; i < (userFields.length - 1); i++){
+        let field = userFields[i];
+        if(field.value.length < 1){
+            field.classList.add('invalid');
+            let errfb = document.querySelector(`span[aria-errormessage="err-fb[${field.id}]"]`)
+            if(errfb)
+            errfb.innerHTML = "Este campo es requerido."
+        }
+    }
+
+    if(posterForm.classList.contains('visible')){
+        const posterFields = document.querySelectorAll('.poster-field');
+        for(let i = 0; i < posterFields.length; i++){
+            let field = posterFields[i];
+            if(field.value.length < 1){
+                field.classList.add('invalid');
+                let errfb = document.querySelector(`span[aria-errormessage="err-fb[${field.id}]"]`)
+                if(errfb)
+                    errfb.innerHTML = "Este campo es requerido."
+            }
+        }
+    }
     const invalidFields = document.querySelectorAll('.invalid');
+    const validFields = document.querySelectorAll('.valid');
     if(undefined !== invalidFields 
         && invalidFields.length == 0
-    ) { form.submit(); }
+        && validFields.length > 1
+    ) 
+    { 
+        if(willRegisterAsPoster && !userForm.classList.contains('hidden')){
+            userForm.classList.add('hidden')
+            posterForm.classList.add('visible');
+            formTitle.innerHTML += ' (poster)';
+        }
+        else { form.submit(); } 
+    }
 }
 
 email.addEventListener('change', emailChangeHandler);
 email.addEventListener('keyup', userDataKeyupHandler);
 username.addEventListener('change', usernameChangeHandler);
 username.addEventListener('keyup', userDataKeyupHandler);
+empresa.addEventListener('keyup', userDataKeyupHandler);
+emailEmpresa.addEventListener('keyup', userDataKeyupHandler);
+telefonoEmpresa.addEventListener('blur', telefonoEmpresaBlurHandler);
 cpwd.addEventListener('keyup', cpwdChangeHandler);
 cpwd.addEventListener('blur', cpwdChangeHandler);
 pwd.addEventListener('keyup', pwdChangeHandler);
 pwd.addEventListener('blur', () => { pwdChangeHandler(); pwdBlurHandler(); });
+btnBack.addEventListener('click', btnBackClickHandler);
+registerAsPoster.addEventListener('click', registerAsPosterClickHandler);
 form.addEventListener('submit', formSubmitHandler);
-// document.querySelectorAll('input').forEach(i => observer.observe(i, { attributes: true }));
+document.querySelectorAll('input').forEach(i => i.addEventListener('keyup', fieldChangeHandler));

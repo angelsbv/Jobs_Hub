@@ -16,6 +16,16 @@ ALTER TABLE users
 
 ALTER TABLE users MODIFY ID int(11) AUTO_INCREMENT, AUTO_INCREMENT = 1;
 
+CREATE TABLE posterInfo(
+    ID int(11) NOT NULL AUTO_INCREMENT,
+    userID int(11) NOT NULL,
+    empresa varchar(54) NOT NULL,
+    emailEmpresa varchar(255) NOT NULL,
+    telefonoEmpresa varchar(30) NOT NULL,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (userID) REFERENCES users(ID)
+)
+
 CREATE TABLE trabajo 
 (
     ID int (11) NOT null,

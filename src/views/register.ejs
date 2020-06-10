@@ -66,141 +66,269 @@
                             class="col s8" 
                             style="padding:0px!important;"
                         >
-                            <h3>Crea tu cuenta</h3>
+                            <h3 id="form-title">Crea tu cuenta</h3>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s8">
-                            <input 
-                                id="username" 
-                                type="text"
-                                name="username" 
-                                autocomplete="off" 
-                                style="min-width: 100%;"
-                                aria-placeholder="usuario"
-                                value=<% if(err.length > 0){ %> 
-                                    <%- err[0].data.username %>
-                                <%}%>""
-                            >
-                            <label 
-                                for="username" 
-                                class="unableToSelect"
-                            >Nombre de usuario</label>
-                            <span 
-                                aria-errormessage="true"
-                                class="helper-text"
-                                id="err-msg-ue"
-                            ></span>
-                            <div 
-                                class="verify-user" 
-                                role="alert[username]" 
-                            >
-                                <span 
-                                    id="verify-user-msg"
-                                    role="alert[username]"
-                                >Verificando...</span>
-                                <div 
-                                    class="progress blue lighten-4"
-                                    role="alert[username]"
+                    <div id="user-form">
+                        <div class="row">
+                            <div class="input-field col s8">
+                                <input 
+                                    class="user-field"
+                                    id="username" 
+                                    type="text"
+                                    name="username" 
+                                    autocomplete="off" 
+                                    style="min-width: 100%;"
+                                    aria-placeholder="usuario"
+                                    value=<% if(err.length > 0){ %> 
+                                        <%- err[0].data.username %>
+                                    <%}%>""
                                 >
-                                    <div class="indeterminate blue"></div>
+                                <label 
+                                    for="username" 
+                                    class="unableToSelect"
+                                >Nombre de usuario</label>
+                                <span 
+                                    aria-errormessage="err-fb[username]"
+                                    class="helper-text"
+                                    id="err-msg-ue"
+                                ></span>
+                                <div 
+                                    class="verify-user" 
+                                    role="alert[username]" 
+                                >
+                                    <span 
+                                        id="verify-user-msg"
+                                        role="alert[username]"
+                                    >Verificando...</span>
+                                    <div 
+                                        class="progress blue lighten-4"
+                                        role="alert[username]"
+                                    >
+                                        <div class="indeterminate blue"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s8">
-                            <input 
-                                id="email" 
-                                type="text" 
-                                class="smallnemo" 
-                                name="email" 
-                                autocomplete="off"
-                                aria-placeholder="correo electrónico"
-                                value=<% if(err.length > 0){ %> 
-                                    <%- err[0].data.email %>
-                                <%}%>""
-                            >
-                            <label 
-                                for="email" 
-                                class="unableToSelect"
-                            >Correo electr&oacute;nico</label>
-                            <span 
-                                aria-errormessage="true"
-                                class="helper-text"
-                                id="err-msg-ee"
-                            ></span>
-                            <div 
-                                class="verify-user" 
-                                role="alert[email]" 
-                            >
-                                <span 
-                                    id="verify-user-msg"
-                                    role="alert[email]"
-                                >Verificando...</span>
-                                <div 
-                                    class="progress blue lighten-4"
-                                    role="alert[email]"
+                        <div class="row">
+                            <div class="input-field col s8">
+                                <input 
+                                    id="email" 
+                                    type="text" 
+                                    class="user-field smallnemo" 
+                                    name="email" 
+                                    autocomplete="off"
+                                    aria-placeholder="correo electrónico"
+                                    value=<% if(err.length > 0){ %> 
+                                        <%- err[0].data.email %>
+                                    <%}%>""
                                 >
-                                    <div class="indeterminate blue"></div>
+                                <label 
+                                    for="email" 
+                                    class="unableToSelect"
+                                >Correo electr&oacute;nico</label>
+                                <span 
+                                    aria-errormessage="err-fb[email]"
+                                    class="helper-text"
+                                    id="err-msg-ee"
+                                ></span>
+                                <div 
+                                    class="verify-user" 
+                                    role="alert[email]" 
+                                >
+                                    <span 
+                                        id="verify-user-msg"
+                                        role="alert[email]"
+                                    >Verificando...</span>
+                                    <div 
+                                        class="progress blue lighten-4"
+                                        role="alert[email]"
+                                    >
+                                        <div class="indeterminate blue"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <input 
+                                    class="user-field"
+                                    id="password" 
+                                    type="password" 
+                                    name="password"
+                                    autocomplete="off"
+                                    value=<% if(err.length > 0){ %> 
+                                        <%- err[0].data.password %>
+                                    <%}%>""
+                                >
+                                <label 
+                                    for="pw" 
+                                    class="unableToSelect"
+                                >Contrase&ntilde;a</label>
+                                <span 
+                                    aria-errormessage="err-fb[password]"
+                                    class="helper-text"
+                                    id="err-msg-pml"
+                                ></span>
+                            </div>
+                            <div class="input-field col s4">
+                                <input 
+                                    class="user-field"
+                                    id="cpwd" 
+                                    type="password" 
+                                    name="cpwd"
+                                    autocomplete="off"
+                                >
+                                <label 
+                                    for="cpwd" 
+                                    class="unableToSelect"
+                                >Confirmaci&oacute;n</label>
+                                <span 
+                                    aria-errormessage="true"
+                                    class="helper-text"
+                                    id="err-msg-pdm"
+                                ></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s4">
+                                <label class="registerAsPoster">
+                                    <input 
+                                        name="isPoster"
+                                        type="checkbox" 
+                                        class="filled-in" 
+                                        id="registerAsPoster" 
+                                    />
+                                    <span>Registrarme como poster</span>
+                                </label>
+                                <br/>
+                                <a href="/">
+                                    Inicia sesi&oacute;n.
+                                </a>
+                            </div>
+                            <div class="col s4">
+                                <button 
+                                    type="submit"
+                                    value="Registrarme" 
+                                    class="btn-submit btn waves-effect waves-teal white-text blue"
+                                >
+                                    Registrarme
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s4">
-                            <input 
-                                id="password" 
-                                type="password" 
-                                name="password" 
-                                autocomplete="off"
-                                value=<% if(err.length > 0){ %> 
-                                    <%- err[0].data.password %>
-                                <%}%>""
-                            >
-                            <label 
-                                for="pw" 
-                                class="unableToSelect"
-                            >Contrase&ntilde;a</label>
-                            <span 
-                                aria-errormessage="true"
-                                class="helper-text"
-                                id="err-msg-pml"
-                            ></span>
+                    <div id="poster-form">
+                        <div class="row">
+                            <div class="input-field col s8">
+                                <input 
+                                    id="empresa" 
+                                    type="text"
+                                    name="empresa" 
+                                    autocomplete="off"
+                                    style="min-width: 100%;"
+                                    aria-placeholder="nombre de empresa"
+                                    class="poster-field"
+                                >
+                                <label 
+                                    for="empresa" 
+                                    class="unableToSelect"
+                                >Empresa</label>
+                                <span 
+                                    aria-errormessage="err-fb[empresa]"
+                                    class="helper-text"
+                                ></span>
+                                <div 
+                                    class="verify-user" 
+                                    role="alert[empresa]" 
+                                >
+                                    <span 
+                                        id="verify-user-msg"
+                                        role="alert[empresa]"
+                                    >Verificando...</span>
+                                    <div 
+                                        class="progress blue lighten-4"
+                                        role="alert[empresa]"
+                                    >
+                                        <div class="indeterminate blue"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="input-field col s4">
-                            <input 
-                                id="cpwd" 
-                                type="password" 
-                                name="cpwd"
-                                autocomplete="off"
-                            >
-                            <label 
-                                for="cpwd" 
-                                class="unableToSelect"
-                            >Confirmaci&oacute;n</label>
-                            <span 
-                                aria-errormessage="true"
-                                class="helper-text"
-                                id="err-msg-pdm"
-                            ></span>
+                        <div class="row">
+                            <div class="input-field col s8">
+                                <input 
+                                    id="email-empresa" 
+                                    type="text" 
+                                    class="poster-field smallnemo" 
+                                    name="emailEmpresa" 
+                                    autocomplete="off"
+                                    aria-placeholder="correo electrónico empresarial"
+                                >
+                                <label 
+                                    for="email-empresa" 
+                                    class="unableToSelect"
+                                >Correo electr&oacute;nico de su empresa</label>
+                                <span 
+                                    aria-errormessage="err-fb[email-empresa]"
+                                    class="helper-text"
+                                ></span>
+                                <div 
+                                    class="verify-user" 
+                                    role="alert[email-empresa]" 
+                                >
+                                    <span 
+                                        id="verify-user-msg"
+                                        role="alert[email-empresa]"
+                                    >Verificando...</span>
+                                    <div 
+                                        class="progress blue lighten-4"
+                                        role="alert[email-empresa]"
+                                    >
+                                        <div class="indeterminate blue"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s4">
-                            <a href="/">
-                                &iquest;Ya tienes una cuenta?<br/>
-                                Inicia sesi&oacute;n.
-                            </a>
+                        <div class="row">
+                            <div class="input-field col s8">
+                                <input 
+                                    id="telefono-empresa" 
+                                    type="text" 
+                                    class="poster-field smallnemo" 
+                                    name="telefonoEmpresa"
+                                    autocomplete="off"
+                                    aria-placeholder="telefono de la empresa"
+                                >
+                                <label 
+                                    for="telefono-empresa" 
+                                    class="unableToSelect"
+                                >N&uacute;mero telef&oacute;nico de su empresa</label>
+                                <span 
+                                    aria-errormessage="err-fb[telefono-empresa]"
+                                    class="helper-text"
+                                ></span>
+                            </div>
                         </div>
-                        <div class="col s4">
-                            <button 
-                                type="submit" 
-                                value="Registrarme" 
-                                class="btn waves-effect waves-teal white-text blue"
-                            >
-                                Registrarme
-                            </button>
+                        <div class="row">
+                            <div class="col s4">
+                                <button
+                                    type="button"
+                                    id="btn-back"
+                                    value="Regresar"
+                                    class="btn waves-effect waves-teal white-text cyan"
+                                >
+                                    Regresar
+                                </button>
+                            </div>
+                            <div class="col s4">
+                                <button
+                                    type="submit"
+                                    value="Registrarme"
+                                    class="btn-submit btn waves-effect waves-teal white-text blue"
+                                >
+                                    Registrarme
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </form>

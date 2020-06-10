@@ -1,4 +1,85 @@
-﻿@media only screen and (max-width: 775px) {
+﻿.helper-text{
+    min-height: 0.001px !important;
+    font-size: 13.5px !important;
+    color: rgb(243, 39, 54) !important;
+}
+
+.smallglass{
+    width: 100%;
+    opacity: 0.85;
+}
+
+.smallrow{
+    margin-bottom: 0!important;
+}
+
+.smallnemo{
+    max-width: 800px!important;
+}
+
+button[value="Registrarme"]{
+    width: 100%;
+}
+
+.verify-user{
+    display: none;
+    color: #2196F3;
+    align-items: center;
+    font-size: 13.5px;
+}
+
+.verify-user.visible{
+    display: flex !important;
+}
+
+.progress{
+    margin: 0 0 0 8px;
+    width: 84% !important;
+}
+
+.progress.hidden{
+    display: none;
+}
+
+[type="checkbox"].filled-in:checked+span:not(.lever):after {
+    border: 2px solid #2196F3;
+    background-color: #2196F3;
+}
+
+.registerAsPoster{
+    color: #1b1b1b;
+}
+
+.registerAsPoster>span{
+    padding-left: 25px !important;
+    line-height: 21px !important;
+}
+
+#user-form{
+    transition: opacity 1s ease-out;
+    opacity: 1;
+    height: auto;
+    overflow: hidden;
+}
+
+#user-form.hidden{
+    opacity: 0;
+    height: 0;
+}
+
+#poster-form{
+    transition: opacity 1s ease-out;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+#poster-form.visible{
+    opacity: 1;
+    height: auto;
+}
+
+@media only screen and (max-width: 775px) {
     .container {
         margin: 0 !important;
         padding: 0 !important;
@@ -59,50 +140,4 @@
     .s8 {
         width: 100% !important;
     }
-}
-
-.helper-text{
-    min-height: 0.001px !important;
-    font-size: 13.5px !important;
-}
-
-.smallglass{
-    width: 100%;
-    opacity: 0.85;
-}
-
-.smallrow{
-    margin-bottom: 0!important;
-}
-
-.smallnemo{
-    max-width: 800px!important;
-}
-
-button[value="Registrarme"]{
-    width: 100%;
-}
-
-span[aria-errormessage="true"]{
-    color: rgb(243, 39, 54) !important;
-}
-
-.verify-user{
-    display: none;
-    color: #2196F3;
-    align-items: center;
-    font-size: 13.5px;
-}
-
-.verify-user.visible{
-    display: flex !important;
-}
-
-.progress{
-    margin: 0 0 0 8px;
-    width: 84% !important;
-}
-
-.progress.hidden{
-    display: none;
 }
