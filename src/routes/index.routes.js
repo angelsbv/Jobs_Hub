@@ -41,16 +41,15 @@ router.post('/verify-data', async (req, res) => {
                 undefined !== username 
                 ? `username = '${username}'`
                 : `email = '${email}'`
-            )).replace('{table}', 'users');
+            )).replace('{table}', 'Users');
         }
         else if(empresa || emailEmpresa){
             query = query.replace('{condition}', (
                 undefined !== empresa
                 ? `empresa = '${empresa}'`
                 : `emailEmpresa = '${emailEmpresa}'`
-            )).replace('{table}', 'posterInfo')
+            )).replace('{table}', 'PostersInfo')
         }
-        console.log(query);
         const [user] = await pool.query(query);
         let exists = (user !== undefined)
         res.json({
@@ -122,12 +121,12 @@ router.get('/c/:token', (req, res, next) => {
                 next();
                 console.error(err);
             }
-            let qry = `SELECT * FROM users WHERE email = '${decoded.ponyOwned}'`;
+            let qry = `SELECT * FROM Users WHERE email = '${decoded.ponyOwned}'`;
             const [user] = await pool.query(qry);
             if(user){
                 if(user.emailConfirmationCode === decoded.notOwn){
                     if(!user.emailConfirmed){
-                        qry = `UPDATE users SET emailConfirmed = true WHERE email = '${decoded.ponyOwned}'`;
+                        qry = `UPDATE Users SET emailConfirmed = true WHERE email = '${decoded.ponyOwned}'`;
                         await pool.query(qry);
                         res.render('confirmado', {
                             layout: 'layouts/B',

@@ -4,16 +4,16 @@ const { promisify } = require('util');
 const database = {
     host: 'localhost',
     user: 'root',
-    database: 'p3_web'
+    database: 'Jobs_Hub'
 }
 
 const pool = mysql.createPool(database);
 
 pool.getConnection((err, conn) => {
-    if (err) console.error(err);
+    if (err) throw err;
     if (conn) conn.release();
     console.log('Connected to DB');
-    return;
+    return 1;
 });
 
 pool.query = promisify(pool.query);

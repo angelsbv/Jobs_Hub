@@ -1,34 +1,31 @@
-CREATE DATABASE p3_web;
-USE p3_web;
+CREATE DATABASE Jobs_Hub;
+USE Jobs_Hub;
 
-CREATE TABLE users(
-    ID int(11) NOT NULL,
+CREATE TABLE Users(
+    ID int(11) NOT NULL AUTO_INCREMENT,
     username VARCHAR(21) NOT NULL,
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     userRol int,
     emailConfirmationCode VARCHAR(255),
-    emailConfirmed BOOLEAN
+    emailConfirmed BOOLEAN,
+    PRIMARY KEY (ID)
 );
 
-ALTER TABLE users
-    ADD PRIMARY KEY (ID);
 
-ALTER TABLE users MODIFY ID int(11) AUTO_INCREMENT, AUTO_INCREMENT = 1;
-
-CREATE TABLE posterInfo(
+CREATE TABLE PostersInfo(
     ID int(11) NOT NULL AUTO_INCREMENT,
     userID int(11) NOT NULL,
     empresa varchar(54) NOT NULL,
     emailEmpresa varchar(255) NOT NULL,
     telefonoEmpresa varchar(30) NOT NULL,
     PRIMARY KEY (ID),
-    FOREIGN KEY (userID) REFERENCES users(ID)
-)
+    FOREIGN KEY (userID) REFERENCES Users(ID)
+);
 
-CREATE TABLE trabajo 
+CREATE TABLE Jobs 
 (
-    ID int (11) NOT null,
+    ID int (11) NOT NULL AUTO_INCREMENT,
     ubicacion VARCHAR(50) NOT NULL,
     posicion VARCHAR(50) NOT NULL,
     compañia VARCHAR(50) NOT NULL,
@@ -36,29 +33,6 @@ CREATE TABLE trabajo
 	categoria VARCHAR(50) NOT NULL,
     tipo varchar(50) NOT NULL,
     logo varchar(255) NOT NULL,
-    descripcion VARCHAR(1600)
+    descripcion VARCHAR(1600),
+    PRIMARY KEY (ID)
 );
-
-ALTER TABLE trabajo
-    ADD PRIMARY KEY (ID);
-
-ALTER TABLE trabajo MODIFY ID int(11) AUTO_INCREMENT, AUTO_INCREMENT = 1;
-
-CREATE TABLE enviarPuestoJob
-(
-    ID int(11) NOT NULL,
-	GMAIL VARCHAR(50) NOT NULL,
-	URLapp VARCHAR(100),
-	IDJOB INT
-    
-);
-
-CREATE TABLE TIPO
-(
-    TiempoFull varchar(10) NOT NULL,
-	TiempoMedio varchar(10) NOT NULL,
-	FREELANCE VARCHAR(10) NOT NULL
-	
-);
-
-ALTER TABLE enviarPuestoJob ADD FOREIGN KEY (IDJOB) REFERENCES trabajo(ID);

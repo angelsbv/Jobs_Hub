@@ -40,7 +40,7 @@ router.get('/category', (req, res) => {
 router.get('/get/:id', async (req, res, next) => {
     try {
         const { id } = req.params
-        const [job] = await pool.query(`SELECT * FROM trabajo WHERE ID = ${id}`);
+        const [job] = await pool.query(`SELECT * FROM Jobs WHERE ID = ${id}`);
         job !== undefined
         ? res.json(job)
         : next()
@@ -55,7 +55,7 @@ router.get('/get/:id', async (req, res, next) => {
 
 router.get('/get-all', async (req, res) => {
     try {
-        const jobs = await pool.query('SELECT * FROM trabajo');
+        const jobs = await pool.query('SELECT * FROM Jobs');
         res.json(jobs);
     } catch (error) {
         console.error(error);   
@@ -69,7 +69,7 @@ router.get('/get-all', async (req, res) => {
 router.post('/add', async (req, res) => {
     try {
         const { body } = req;
-        await pool.query('INSERT INTO trabajo SET ?', body);
+        await pool.query('INSERT INTO Jobs SET ?', body);
         res.json({
             ok: true,
             agregado: true,
@@ -91,7 +91,7 @@ router.put('/edit/:id', async (req, res) => {
     try {
         const { id } = req.params;
         const { body } = req;
-        await pool.query('UPDATE trabajo SET ? WHERE ID = '+id, body);
+        await pool.query('UPDATE Jobs SET ? WHERE ID = '+id, body);
         res.json({
             ok: true,
             editado: true,
@@ -113,7 +113,7 @@ router.put('/edit/:id', async (req, res) => {
 router.delete('/remove/:id', async (req, res) => {
     try {
         const { id } = req.params;
-        await pool.query('DELETE FROM trabajo WHERE id = ?', id);
+        await pool.query('DELETE FROM Jobs WHERE id = ?', id);
         res.json({
             ok: true,
             eliminado: true,
