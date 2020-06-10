@@ -42,7 +42,7 @@ body{
 {
 	display: flex;
 	justify-content: space-between;
-	margin: 35px 15px 0 15px;
+	margin: 35px 15px 15px 15px;
 }
 
 .botonsearch
@@ -122,4 +122,36 @@ body{
 {
     display: flex;
     justify-content: flex-end;
-}   
+}
+
+.form-post-a-job{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botonpost{
+	max-height: 40px;
+}
+
+.form-container{
+	display: flex;
+    flex-direction: column;
+    width: 50%;
+	border-radius: 10px;
+	padding: 42px;
+	margin-bottom: 25px;
+	-webkit-box-shadow: rgba(0,0,0,0.6) 0 0 2.67px;
+    -moz-box-shadow: rgba(0,0,0,0.6) 0 0 2.67px;
+    box-shadow: rgba(0,0,0,0.6) 0 0 2.67px;
+}
+
+#descripcion{
+	max-width: 9999px !important;
+	max-height: 230px;
+	min-height: 30px;
+}
+
+.descripcion{
+	margin-bottom: 0 !important;
+}
