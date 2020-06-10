@@ -2,6 +2,7 @@
     min-height: 0.001px !important;
     font-size: 13.5px !important;
     color: rgb(243, 39, 54) !important;
+    margin-left: 0 !important;
 }
 
 .smallglass{
@@ -77,6 +78,24 @@ button[value="Registrarme"]{
 #poster-form.visible{
     opacity: 1;
     height: auto;
+}
+
+.show-pwd{
+    position: absolute;
+    background: transparent;
+    border-color: transparent;
+    outline: none;
+    right: 4px;
+    top: 12px;
+    cursor: pointer;
+}
+
+.prefix.active{
+    color: #2196F3 !important;
+}
+
+.show-pwd:focus{
+    background: transparent;
 }
 
 @media only screen and (max-width: 775px) {

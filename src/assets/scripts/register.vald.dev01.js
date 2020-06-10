@@ -246,6 +246,15 @@ const fieldChangeHandler = (e) => {
     if(errfb) errfb.innerHTML = '';
 }
 
+const showPwdHandler = (e) => {
+    const elem = e.target.parentElement;
+    if(elem.ariaRoleDescription === 'show-pwd'){
+        const { type } = pwd;
+        pwd.type = (type === 'text' ? 'password' : 'text');
+        e.target.innerHTML = (type === 'text' ? 'visibility' : 'visibility_off')
+    }
+}
+
 const formSubmitHandler = (e) => {
     e.preventDefault();
     const userFields = document.querySelectorAll('.user-field');
@@ -302,3 +311,4 @@ btnBack.addEventListener('click', btnBackClickHandler);
 registerAsPoster.addEventListener('click', registerAsPosterClickHandler);
 form.addEventListener('submit', formSubmitHandler);
 document.querySelectorAll('input').forEach(i => i.addEventListener('keyup', fieldChangeHandler));
+document.querySelectorAll('.show-pwd').forEach(i => i.addEventListener('click', showPwdHandler));
