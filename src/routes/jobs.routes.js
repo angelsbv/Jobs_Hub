@@ -19,7 +19,21 @@ router.use((req, res, next) => {
         res.redirect('/');
 })
 
-router.get('/post-a-job', (req, res) => {
+router.get('/search/:keywords', async (req, res) => {
+    const keywords = req.params.keywords.split(' ');
+    let results = [];
+    for(let k in keywords){
+        let keyword = keywords[k];
+        let [rs] = await pool.query(`CALL searchJob('${keyword}')`)
+        for(let r in rs){
+            results.push(rs[r]);
+        }
+    }
+
+    res.json({ results });
+});
+
+router.get('/post', (req, res) => {
     res.render('post-job', {
         layout: bLayout
     });

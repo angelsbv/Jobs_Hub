@@ -6,9 +6,8 @@ CREATE PROCEDURE searchJob(
 		IN search VARCHAR(50)
 	)
 BEGIN
-	SELECT * FROM Jobs WHERE categoria = search or ubicacion = search 
-	or posicion = search or compañia = search or fecha = search;
-
+	SELECT * FROM Jobs WHERE categoria = search or ubicacion = search
+	or posicion = search or compañia = search or tipo = search or descripcion = search;
 END ;;
 DELIMITER ;
 
