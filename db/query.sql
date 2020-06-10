@@ -6,7 +6,6 @@ CREATE TABLE users(
     username VARCHAR(21) NOT NULL,
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
-    userRol int,
     emailConfirmationCode VARCHAR(255),
     emailConfirmed BOOLEAN
 );
@@ -22,11 +21,8 @@ CREATE TABLE trabajo
     ubicacion VARCHAR(50) NOT NULL,
     posicion VARCHAR(50) NOT NULL,
     compañia VARCHAR(50) NOT NULL,
-    fecha TIMESTAMP NOT NULL,
-	categoria VARCHAR(50) NOT NULL,
-    tipo varchar(50) NOT NULL,
-    logo varchar(255) NOT NULL,
-    descripcion VARCHAR(1600)
+    fecha date NOT NULL,
+	categoria VARCHAR(50) NOT NULL
 );
 
 ALTER TABLE trabajo
@@ -51,4 +47,4 @@ CREATE TABLE TIPO
 	
 );
 
-ALTER TABLE enviarPuestoJob ADD FOREIGN KEY (IDJOB) REFERENCES trabajo(ID);
+ALTER TABLE enviarPuestoJob ADD FOREIGN KEY (IDJOB) REFERENCES TRABAJO(ID);

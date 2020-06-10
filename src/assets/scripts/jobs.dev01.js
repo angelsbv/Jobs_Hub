@@ -1,7 +1,9 @@
 
+
+
 let newCategoryTemplate = `<div class="category">
     <h1>{title}</h1>
-    <table class="table tabla-design table-hover">
+    <table class="table tabla-design">
         <thead class="thead-light">
             <tr>
                 <th>Location</th>
@@ -16,56 +18,53 @@ let newCategoryTemplate = `<div class="category">
 
 const container = document.querySelector(".contenedor")
 
-const handleTRowClick = (e) => {
-    console.log(e.target);
-}
-
 async function getJobs()
 {
     const res = await fetch('/job/get-all');
     const data = await res.json();
-    let category = '';
-    let categories = {};
+    
+    let cat = '';
+    let cats = {};
     for(let i = 0; i < data.length; i++){
-        category = data[i].categoria
-        categories[category] = data.filter((c) => 
-            c.categoria === category
+        cat = data[i].categoria
+        cats[cat] = data.filter((c) => 
+            c.categoria === cat
         );
     }
-    for(let category in categories)
+
+    for(let cat in cats)
     {
-        newCategory = newCategoryTemplate.replace('{title}', category).replace('{category}', category)
-        container.innerHTML += newCategory
-        newCategory = document.querySelector(`.${category}`)
-        category = categories[category];
-        for(let a = 0; a < category.length; a++) 
+
+        newCat = newCategoryTemplate.replace('{title}', cat).replace('{category}', cat)
+        
+        container.innerHTML += newCat
+        newCat = document.querySelector(`.${cat}`)
+        cat = cats[cat]
+
+        for(let a = 0; a < cat.length; a++) 
         {
-            let job = category[a]
-            let tr = document.createElement("tr");
-            tr.id = job.ID;
-            tr.style.cursor = "pointer";
-            for(let t in job)
-            {       
-                if(t === 'ubicacion' 
-                ||t === 'posicion' 
-                ||t === 'compañia'
+
+                
+                let tr = document.createElement("tr");
+
+             for(let b in cat[a])
+            {
+
+            
+                if(b === 'ubicacion' 
+                ||b === 'posicion' 
+                ||b === 'compañia'
                 ){
-                    let td = document.createElement('td');
-                    td.innerHTML = job[t]; 
-                    tr.appendChild(td);
+                let td = document.createElement("td");
+                td.innerHTML = cat[a][b]; 
+                tr.appendChild(td);
+
                 }
             }
-            newCategory.appendChild(tr)
+
+             newCat.appendChild(tr)
         }
     }
 }
 
-const tRowClickHandler = (e) => {
-    let trow = e.target.parentElement;
-    if(trow.tagName == 'TR'){
-        location.href = `${location.origin}/job/details?id=${trow.id}`;
-    }
-}
-
-container.addEventListener('click', tRowClickHandler)
 window.addEventListener('load', getJobs);
