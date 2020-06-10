@@ -34,6 +34,7 @@
                   <option value="Frontend">Frontend</option>
                   <option value="Programming">Programming</option>
                 </select>
+                <p id="adverCategoria" class="text-danger" style="visibility: hidden;">Elija una Categoria</p>
               </div>
               <label>Tipo:</label>
               <br>
@@ -49,29 +50,34 @@
                 <input class="form-check-input" type="radio" name="tipo" id="tipo3" value="Freelancer">
                 <label class="form-check-label" for="tipo3">Freelancer</label>
               </div>
-              <br>
-              <br>
+              <p id="adverTipo" class="text-danger" style="visibility: hidden;">Seleccione un Tipo</p>
               <div class="form-group">
                 <label for="compañia">Compañia</label>
                 <input type="text" class="form-control" id="compañia" name="compañia" placeholder="Nombre de su compañia">
+                <p id="adverCompa" class="text-danger" style="visibility: hidden;">Ingrese una Compañia</p>
               </div>
               <div class="form-group">
                 <label for="ubicacion">Ubicacion</label>
                 <input type="text" class="form-control" id="ubicacion" name="ubicacion" placeholder="Ubicacion del empleo">
+                <p id="adverUbi" class="text-danger" style="visibility: hidden;">Ingrese una Ubicacion</p>
               </div>
               <div class="form-group">
                 <label for="logo">Logo</label>
                 <input type="url" class="form-control" id="logo" name="logo" placeholder="Url de su logo">
+                <p id="adverLogo" class="text-danger" style="visibility: hidden;">Ingrese el url de un logo</p>
               </div>
               <div class="form-group">
                 <label for="posicion">Posicion</label>
                 <input type="text" class="form-control" id="posicion" name="posicion" placeholder="Posicion del trabajo posteado">
+                <p id="adverPos" class="text-danger" style="visibility: hidden;">Indique la Posicion</p>
               </div>
               <div class="form-group">
                 <label for="descripcion">Descripcion</label>
                 <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="Agregue una descripcion del trabajo y diga como aplicar"></textarea>
+                <p id="adverDes" class="text-danger" style="visibility: hidden;">Debe completar este campo</p>
               </div>
               <button onclick="return validacion()" class="btn btn-success">Postear</button>
+              
             </form>
             
 

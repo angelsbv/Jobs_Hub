@@ -1,4 +1,3 @@
-console.log('Toy aqui >:v');
 var categoria;
 var tipo;
 var compañia;
@@ -27,22 +26,30 @@ function validacion() {
     descripcion = descripcionInput.value.trim();
 
     if(categoria === "" || categoria === null || categoria === undefined){
-        alert("Debe completar el formulario" + "\nNo ha elegido una categoria.");
+        //alert("Debe completar el formulario" + "\nNo ha elegido una categoria.");
+        $('#categoria').focus().addClass('is-invalid');
+        $('#adverCategoria').css('visibility','visible');
     }else if(tipo === "" || tipo === null || tipo === undefined){
-        alert("Debe completar el formulario" + "\nNo ha elegido un tipo.");
+        $(':radio').focus().addClass('is-invalid');
+        $('#adverTipo').css('visibility','visible');
     }else if(compañia === "" || compañia === null || compañia === undefined){
-        alert("Debe completar el formulario" + "\nNo ha ingresado el nombre de su compañia.");
+        $('#compañia').focus().addClass('is-invalid');
+        $('#adverCompa').css('visibility','visible');
     }else if(ubicacion === "" || ubicacion === null || ubicacion === undefined){
-        alert("Debe completar el formulario" + "\nNo ha ingresado la ubicacion del puesto de trabajo");
+        $('#ubicacion').focus().addClass('is-invalid');
+        $('#adverUbi').css('visibility','visible');
     }else if(logo === "" || logo === null || logo === undefined){
-        alert("Debe completar el formulario" + "\nNo ha ingresado su logo.");
+        $('#logo').focus().addClass('is-invalid');
+        $('#adverLogo').css('visibility','visible');
     }else if(posicion === "" || posicion === null || posicion === undefined){
-        alert("Debe completar el formulario" + "\nNo ha determinado la posicion.");
+        $('#posicion').focus().addClass('is-invalid');
+        $('#adverPos').css('visibility','visible');
     }else if(descripcion === "" || descripcion === null || descripcion === undefined){
-        alert("Debe completar el formulario" + "\nNo ha llenado la descripcion del trabajo.");
+        $('#descripcion').focus().addClass('is-invalid');
+        $('#adverDes').css('visibility','visible');
     }else{
-        console.log('Todo bien');
-        alert('Todo bien');
+        $('input').addClass('is-valid');
+        $('p').css('visibility','hidden');
         permiso = true;
     }
     return permiso;
