@@ -140,5 +140,6 @@ router.get('/c/:token', (req, res, next) => {
     });
 });
 
+module.exports.isAuth = isAuth = (req) => (req.isAuthenticated() ? true : false);
+
 module.exports = router;
-module.exports.isAuth = isAuth = (req) => (req.isAuthenticated() ? true : false);;
