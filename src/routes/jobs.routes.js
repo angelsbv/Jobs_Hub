@@ -8,8 +8,16 @@
 */
 
 const router = require('express').Router();
+const { isAuth } = require('./index.routes');
 const pool = require('../db');
 const bLayout = 'layouts/B';
+
+router.use((req, res, next) => {
+    if(isAuth(req))
+        next();
+    else
+        res.redirect('/');
+})
 
 router.get('/post-a-job', (req, res) => {
     res.render('post-job', {
