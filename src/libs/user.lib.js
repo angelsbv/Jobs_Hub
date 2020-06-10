@@ -31,17 +31,16 @@ module.exports.sendConfirmationMail = async ({ headers: { origin } }, { email })
             from: USER_MAIL,
             subject: 'Confirmación',
             html: `
-            
-            <div style="width: 18rem;">
-            <div>
-              <h4>Gracias por registrarte</h5>
-              <h5>Ahora confirma tu sesion</h6>
-              <p>Haz click en "Continuar" para confirmar tu cuenta, bienvenido a nuestra plataforma.</p>
-              <div style="text-align: right;">
-              <a href="${origin}/c/${token}">Continuar</a>
-              </div>
+            <div style="width: 352px;">
+                <div>
+                    <h3>Gracias por registrarte</h3>
+                    <h4>Ahora confirme su cuenta</h4>
+                    <p>Haz click en "Continuar" para confirmar tu cuenta, bienvenido a nuestra plataforma.</p>
+                    <div style="text-align: right;">
+                        <a href="${origin}/c/${token}">Continuar</a>
+                    </div>
+                </div>
             </div>
-          </div>
             `
             // <a>${origin}/c/${token}</a>
         }
