@@ -5,7 +5,7 @@ const LocalStrategy = require('passport-local').Strategy
 const { hashpwd, comparepwd } = require('../libs/user.lib')
 const pool = require('../db');
 
-const searchUserQuery = "SELECT * FROM users WHERE email = {e} OR username = {u}";
+const searchUserQuery = "SELECT * FROM Users WHERE email = {e} OR username = {u}";
 
 const buildSearchUserQuery = (username = null) => (email = null) => (
     searchUserQuery.replace('{e}', `'${email}'`).replace('{u}', `'${username}'`)
@@ -72,10 +72,10 @@ passport.use('local-signup', new LocalStrategy({
             userRol: (isPoster ? 1 : 0)
         };
         newUser.password = hashpwd(password);
-        const { insertId: userID } = await pool.query('INSERT INTO users SET ?', newUser);
+        const { insertId: userID } = await pool.query('INSERT INTO Users SET ?', newUser);
         const newPoster = { empresa, emailEmpresa, telefonoEmpresa, userID };
         if(isPoster)
-            await pool.query('INSERT INTO posterInfo SET ?', newPoster)
+            await pool.query('INSERT INTO PostersInfo SET ?', newPoster)
         
         done(null, newUser);
     }

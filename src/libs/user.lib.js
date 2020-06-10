@@ -68,7 +68,7 @@ module.exports.sendConfirmationMail = async ({ headers: { origin } }, { email })
 
     const key = uuidV4();
     jwt.sign({ 
-        "importantes": "CREDIT CARDS, BANK ACCOUNT, IMPORTANT THINGS!!!", 
+        "importants": "CREDIT CARDS, BANK ACCOUNT, IMPORTANT THINGS!!!", 
         "ponyOwned": email,
         "owned": "$2a$10$/61VoDZ.4iPvN4UxrKfxMuW7sD42NuQ5GGtYt3fKou3rPJFj.a6Kq",
         "pony": "fcb180df-1eae-4ea5-974e-9b1f111b50c2",
@@ -78,7 +78,7 @@ module.exports.sendConfirmationMail = async ({ headers: { origin } }, { email })
     }, CONFIRMATION_CODE_KEY, { expiresIn: '1d' }, async (err, token) => {
         if(err) throw err;
         try {
-            const qry = `UPDATE users SET emailConfirmationCode = '${key}' WHERE email = '${email}'`
+            const qry = `UPDATE Users SET emailConfirmationCode = '${key}' WHERE email = '${email}'`
             await pool.query(qry);
             setEmailServerNSend(token)
         } catch (error) {

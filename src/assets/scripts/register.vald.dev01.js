@@ -24,9 +24,14 @@ const errEE = document.querySelector('#err-msg-ee');
 const errPDM = document.querySelector('#err-msg-pdm');
 const errPML = document.querySelector('#err-msg-pml');
 
+const colorTxtNormal = '#2196F3';
+const colorTxtError = '#f32736';
+const colorTxtSuccess = '#4CAF50';
+
 let errCodes = document.querySelector("#__c24_0ds_").innerHTML;
 let timerID = null;
 let willRegisterAsPoster = false;
+let pml = false;
 
 //
 const msgErrUE = 'Este nombre de usuario ya existe, intente con uno distinto.';
@@ -81,60 +86,49 @@ const usernameChangeHandler = () => {
     }
 }
 
-const setPDM = (pdm) => {
-    if(pdm){
-        cpwd.classList.add('invalid');
-        errPDM.innerHTML = msgErrPDM;
+const pwdChangeHandler = () => {
+    if(0 > errPML.innerHTML.length){
+        pwd.classList.remove('invalid');
+        errPML.innerHTML = null;
     }
-    else{
+}
+
+const cpwdChangeHandler = () => {
+    if(0 > errPDM.innerHTML.length){
         cpwd.classList.remove('invalid');
         errPDM.innerHTML = null;
     }
 }
 
-const validatePDM = (elem) => {
-    const { value: val } = elem;
-    switch(elem.id){
-        case 'password':
-            if(val !== cpwd.value 
-                && val.length >= cpwd.value.length
-                && cpwd.value.length > 0
-            )
-                setPDM(true);
-            else
-                setPDM(false);
-            break;
-        case 'cpwd':
-            if(val !== pwd.value 
-                && val.length >= pwd.value.length
-                && pwd.value.length > 0
-            )
-                setPDM(true);
-            else
-                setPDM(false);
-            break;
+//Password N' Confirm Password Keyup Handler
+const pwdNCpwdKeyupHandler = (e) => {
+    const { id } = e.target;
+    if(id === 'password'){
+        const elemPml = document.querySelector('#pml');
+        pml = (pwd.value.length < 6)
+        if(pml){
+            pwd.classList.remove('valid');
+            pwd.classList.add('invalid')
+            elemPml.innerHTML = msgErrPML;
+            elemPml.setAttribute('style', `color: ${colorTxtError} !important;`);
+        }else{
+            pwd.classList.add('valid');
+            pwd.classList.remove('invalid');
+            elemPml.innerHTML = 'La contrase\u00F1a es v\u00E1lida.';
+            elemPml.setAttribute('style', `color: ${colorTxtSuccess} !important;`);
+        }
     }
-}
-
-const cpwdChangeHandler = () => {
-    if(0 > errPDM.innerHTML.length) setPDM(false);
-    validatePDM(cpwd);
-}
-
-const pwdChangeHandler = () => {
-    if(0 > errPDM.innerHTML.length) setPDM(false);
-    if(pwd.value.length >= 6) errPML.innerHTML = null;
-    validatePDM(pwd)
-}
-
-const pwdBlurHandler = () => {
-    if(pwd.value.length < 6){ 
-        errPML.innerHTML = msgErrPML;
-        pwd.classList.add('invalid');
+    if(pwd.value === cpwd.value && !pml){
+        cpwd.classList.add('valid');
+        cpwd.classList.remove('invalid');
+        errPDM.innerHTML = msgErrPDM.replace('no', '');
+        errPDM.setAttribute('style', `color: ${colorTxtSuccess} !important;`);
+    }else{
+        cpwd.classList.remove('valid');
+        cpwd.classList.add('invalid');
+        errPDM.innerHTML = msgErrPDM;
+        errPDM.setAttribute('style', `color: ${colorTxtError} !important;`);
     }
-    else
-        errPML.innerHTML = null;
-        pwd.classList.remove('invalid');
 }
 
 const dataVerification = async (elem, verifyUser, valid) => {
@@ -146,7 +140,7 @@ const dataVerification = async (elem, verifyUser, valid) => {
         elem.classList.remove('invalid', 'valid');
         verifyUser.classList.add('visible');
         verifyUserMsg.innerHTML = 'Verificando...';
-        verifyUserMsg.style.color = '#2196F3';
+        verifyUserMsg.style.color = colorTxtNormal;
 
         let body = null;
         if(posterForm.classList.contains('visible'))
@@ -178,7 +172,7 @@ const dataVerification = async (elem, verifyUser, valid) => {
             if(id === 'empresa' && !valid)
                 msg = 'Los nombres de empresa deben tener 3 o m\u00E1s d\u00EDgitos.';
             verifyUserMsg.innerHTML = (exists ? msg : msg.replace(' no ', ' '));
-            verifyUserMsg.style.color = (exists ? '#f32736' : '#4CAF50');
+            verifyUserMsg.style.color = (exists ? colorTxtError : colorTxtSuccess);
             elem.classList.add((exists ? 'invalid' : 'valid'));
         }, 550);
     } catch (error) {
@@ -231,18 +225,19 @@ const btnBackClickHandler = () => {
 }
 
 const telefonoEmpresaBlurHandler = (e) => {
-    const { target: { classList: elem } } = e;
+    const { target: { classList } } = e;
     const errfb = document.querySelector(`span[aria-errormessage="err-fb[${e.target.id}]"]`)
     const regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
     if(!regex.test(e.target.value)){
-        errfb.innerHTML = 'Debe digitar un n\u00FAmero telef\u00F3nico v\u00E1lido.';
-        elem.add('invalid');
-        errfb.style.color = '#f32736';
+        errfb.innerHTML = 'Debe digitar un n\u00FAmero telef\u00F3nico v\u00E1lido. Recuerde que solo debe contener n\u00FAmeros.';
+        classList.remove('valid');
+        classList.add('invalid');
+        errfb.style.color = colorTxtError;
     }else{
         errfb.innerHTML = 'Este n\u00FAmero telef\u00F3nico es v\u00E1lido.';
-        elem.remove('invalid');
-        elem.add('valid')
-        errfb.setAttribute('style', 'color: #4CAF50 !important;');
+        classList.remove('invalid');
+        classList.add('valid');
+        errfb.setAttribute('style', `color: ${colorTxtSuccess} !important;`);
     }
 }
 
@@ -299,10 +294,10 @@ username.addEventListener('keyup', userDataKeyupHandler);
 empresa.addEventListener('keyup', userDataKeyupHandler);
 emailEmpresa.addEventListener('keyup', userDataKeyupHandler);
 telefonoEmpresa.addEventListener('blur', telefonoEmpresaBlurHandler);
-cpwd.addEventListener('keyup', cpwdChangeHandler);
-cpwd.addEventListener('blur', cpwdChangeHandler);
-pwd.addEventListener('keyup', pwdChangeHandler);
-pwd.addEventListener('blur', () => { pwdChangeHandler(); pwdBlurHandler(); });
+cpwd.addEventListener('change', cpwdChangeHandler)
+cpwd.addEventListener('keyup', pwdNCpwdKeyupHandler);
+pwd.addEventListener('keyup', pwdNCpwdKeyupHandler);
+pwd.addEventListener('change', pwdChangeHandler);
 btnBack.addEventListener('click', btnBackClickHandler);
 registerAsPoster.addEventListener('click', registerAsPosterClickHandler);
 form.addEventListener('submit', formSubmitHandler);
