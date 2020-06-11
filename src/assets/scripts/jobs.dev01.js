@@ -12,7 +12,7 @@ let newCategoryTemplate = `<div class="category">
         <tbody class = "{category}">
         </tbody>
     </table>
-    <a class="more-jobs" href="/category?categoryName={category-name}">{rest}</a>
+    <a class="more-jobs" href="/job/category?categoryName={category-name}">{rest}</a>
 </div>`
 
 const container = document.querySelector(".contenedor")
