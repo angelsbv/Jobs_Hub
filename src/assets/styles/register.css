@@ -85,7 +85,8 @@ button[value="Registrarme"]{
     background: transparent;
     border-color: transparent;
     outline: none;
-    right: 4px;
+    width: 2rem !important;
+    right: 14px;
     top: 12px;
     cursor: pointer;
 }

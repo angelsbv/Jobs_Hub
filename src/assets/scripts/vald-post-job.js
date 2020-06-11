@@ -26,7 +26,6 @@ function validacion() {
     descripcion = descripcionInput.value.trim();
 
     if(categoria === "" || categoria === null || categoria === undefined){
-        //alert("Debe completar el formulario" + "\nNo ha elegido una categoria.");
         $('#categoria').focus().addClass('is-invalid');
         $('#adverCategoria').css('visibility','visible');
     }else if(tipo === "" || tipo === null || tipo === undefined){

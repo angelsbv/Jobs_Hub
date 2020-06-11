@@ -28,16 +28,15 @@ const colorTxtNormal = '#2196F3';
 const colorTxtError = '#f32736';
 const colorTxtSuccess = '#4CAF50';
 
-let errCodes = document.querySelector("#__c24_0ds_").innerHTML;
-let timerID = null;
-let willRegisterAsPoster = false;
-let pml = false;
-
-//
 const msgErrUE = 'Este nombre de usuario ya existe, intente con uno distinto.';
 const msgErrEE = 'Correo electr\u00F3nico ya est\u00E1 registrado, int\u00E9ntelo con uno diferente.';
 const msgErrPDM = 'Las contrase\u00F1as no coinciden.';
 const msgErrPML = 'La contrase\u00F1a debe tener un m\u00EDnimo de 6 d\u00EDgitos.'
+
+let errCodes = document.querySelector("#__c24_0ds_").innerHTML;
+let timerID = null;
+let willRegisterAsPoster = false;
+let pml = false;
 
 const showErrs = (errCode) => {
     switch (errCode) {
@@ -247,12 +246,15 @@ const fieldChangeHandler = (e) => {
 }
 
 const showPwdHandler = (e) => {
-    const elem = e.target.parentElement;
-    if(elem.ariaRoleDescription === 'show-pwd'){
-        const { type } = pwd;
-        pwd.type = (type === 'text' ? 'password' : 'text');
+    const { type } = pwd;
+    pwd.type = (type === 'text' ? 'password' : 'text');
+    const i = e.target.querySelector('i')
+    console.log(i);
+    if(i)
+        i.innerHTML = (type === 'text' ? 'visibility' : 'visibility_off')
+    else
         e.target.innerHTML = (type === 'text' ? 'visibility' : 'visibility_off')
-    }
+
 }
 
 const formSubmitHandler = (e) => {
