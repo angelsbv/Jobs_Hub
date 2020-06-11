@@ -103,7 +103,7 @@ router.get('/get-by/:by/:data', async (req, res, next) => {
 
 router.get('/get-all', async (req, res) => {
     try {
-        const jobs = await pool.query('SELECT * FROM Jobs');
+        const jobs = await pool.query('SELECT * FROM Jobs ORDER BY ID DESC');
         jobs.length > 0
         ? res.json(jobs)
         : res.json({
