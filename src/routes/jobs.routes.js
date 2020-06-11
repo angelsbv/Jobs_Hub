@@ -19,20 +19,6 @@ router.use((req, res, next) => {
         res.redirect('/');
 })
 
-router.get('/search/:keywords', async (req, res) => {
-    const keywords = req.params.keywords.split(' ');
-    let results = [];
-    for(let k in keywords){
-        let keyword = keywords[k];
-        let [rs] = await pool.query(`CALL searchJob('${keyword}')`)
-        for(let r in rs){
-            results.push(rs[r]);
-        }
-    }
-
-    res.json({ results });
-});
-
 router.get('/post', (req, res) => {
     res.render('post-job', {
         layout: bLayout
@@ -51,6 +37,30 @@ router.get('/category', (req, res) => {
     });
 });
 
+router.get('/search/:keywords', async (req, res) => {
+    try {
+        const keywords = req.params.keywords.split(' ');
+        let results = [];
+        for(let k in keywords){
+            let keyword = keywords[k];
+            let [rs] = await pool.query(`CALL searchJob('${keyword}')`)
+            for(let r in rs){
+                results.push(rs[r]);
+            }
+        }
+        res.json({ 
+            ok: true, 
+            results
+        });
+    } catch (error) {
+        res.json({
+            ok: false,
+            error: 'Hubo un error, no pudimos encontrar los datos solicitados :/',
+            date: new Date().toLocaleString()
+        })
+    }
+});
+
 router.get('/get/:id', async (req, res, next) => {
     try {
         const { id } = req.params
@@ -60,17 +70,46 @@ router.get('/get/:id', async (req, res, next) => {
         : next()
     } catch (error) {
         console.error(error);
-        res.json({ 
+        res.json({
+            ok: false,
             error: 'Hubo un error; nada grave, pero intenta luego',
             fecha: new Date().toLocaleString()
         });
     }
 });
 
+router.get('/get-by/:by/:data', async (req, res, next) => {
+    try {
+        const { by, data } = req.params;
+        const jobs = await pool.query(`SELECT * FROM Jobs WHERE ${by} = '${data}'`);
+        jobs.length > 0
+        ? res.json({ 
+            ok: true,
+            jobs 
+        })
+        : res.json({
+            ok: false,
+            error: 'No pudimos encontrar trabajos con los datos solicitados'
+        })
+    } catch (error) {
+        console.error(error);
+        res.json({
+            ok: false,
+            error: 'Hubo error al intentar buscar sus datos :(',
+            fecha: new Date().toLocaleString()
+        });
+    }
+})
+
 router.get('/get-all', async (req, res) => {
     try {
         const jobs = await pool.query('SELECT * FROM Jobs');
-        res.json(jobs);
+        jobs.length > 0
+        ? res.json(jobs)
+        : res.json({
+            ok: false,
+            error: 'No pudimos encontrar trabajos con los datos solicitados'
+        })
     } catch (error) {
         console.error(error);   
         res.json({

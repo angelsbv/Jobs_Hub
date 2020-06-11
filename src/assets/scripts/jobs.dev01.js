@@ -12,13 +12,10 @@ let newCategoryTemplate = `<div class="category">
         <tbody class = "{category}">
         </tbody>
     </table>
+    <a class="more-jobs" href="/category?categoryName={category-name}">{rest}</a>
 </div>`
 
 const container = document.querySelector(".contenedor")
-
-const handleTRowClick = (e) => {
-    console.log(e.target);
-}
 
 async function getJobs()
 {
@@ -34,11 +31,21 @@ async function getJobs()
     }
     for(let category in categories)
     {
-        newCategory = newCategoryTemplate.replace('{title}', category).replace('{category}', category)
-        container.innerHTML += newCategory
+        newCategory = newCategoryTemplate
+                        .replace('{title}', category)
+                        .replace('{category}', category)
+                        .replace('{category-name}', category);
+        let categoryLength = categories[category].length; 
+        if(categoryLength > 10){
+            newCategory = newCategory.replace('{rest}', `Y ${categoryLength - 10} trabajo(s) m&aacute;s...`);
+            categoryLength = 10;
+        }else
+            newCategory = newCategory.replace('{rest}', ``);
+        
+        container.innerHTML += newCategory;
         newCategory = document.querySelector(`.${category}`)
         category = categories[category];
-        for(let a = 0; a < category.length; a++) 
+        for(let a = 0; a < categoryLength; a++) 
         {
             let job = category[a]
             let tr = document.createElement("tr");

@@ -60,3 +60,7 @@ h1 {
 .paginacion button {
     background-color: #FFFFFF;
 }
+
+.more-jobs{
+    float: right;
+}
