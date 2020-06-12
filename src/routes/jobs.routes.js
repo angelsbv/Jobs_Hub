@@ -37,7 +37,7 @@ router.get('/category', (req, res) => {
     });
 });
 
-router.get('/search/:keywords', async (req, res) => {
+const searchJob = async (req, res) => {
     try {
         const keywords = req.params.keywords.split(' ');
         let results = [];
@@ -51,7 +51,6 @@ router.get('/search/:keywords', async (req, res) => {
                 exists[rs[r].ID] = rs[r].ID;
             }
         }
-        console.log(exists);
         res.json({ 
             ok: true, 
             results
@@ -63,9 +62,9 @@ router.get('/search/:keywords', async (req, res) => {
             date: new Date().toLocaleString()
         })
     }
-});
+}
 
-router.get('/get/:id', async (req, res, next) => {
+const getJob = async (req, res, next) => {
     try {
         const { id } = req.params
         const [job] = await pool.query(`SELECT * FROM Jobs WHERE ID = ${id}`);
@@ -80,9 +79,9 @@ router.get('/get/:id', async (req, res, next) => {
             fecha: new Date().toLocaleString()
         });
     }
-});
+}
 
-router.get('/get-by/:by/:data', async (req, res, next) => {
+const getByJob = async (req, res, next) => {
     try {
         const { by, data } = req.params;
         const jobs = await pool.query(`SELECT * FROM Jobs WHERE ${by} = '${data}'`);
@@ -103,9 +102,9 @@ router.get('/get-by/:by/:data', async (req, res, next) => {
             fecha: new Date().toLocaleString()
         });
     }
-})
+}
 
-router.get('/get-all', async (req, res) => {
+const getAllJob = async (req, res) => {
     try {
         const jobs = await pool.query('SELECT * FROM Jobs ORDER BY ID DESC');
         jobs.length > 0
@@ -121,9 +120,9 @@ router.get('/get-all', async (req, res) => {
             fecha: new Date().toLocaleString()
         });
     }
-});
+}
 
-router.post('/add', async (req, res) => {
+const addJob = async (req, res) => {
     try {
         const { body } = req;
         await pool.query('INSERT INTO Jobs SET ?', body);
@@ -142,9 +141,9 @@ router.post('/add', async (req, res) => {
             fecha: new Date().toLocaleString()
         });
     }
-});
+}
 
-router.put('/edit/:id', async (req, res) => {
+const editJob = async (req, res) => {
     try {
         const { id } = req.params;
         const { body } = req;
@@ -165,12 +164,12 @@ router.put('/edit/:id', async (req, res) => {
             fecha: new Date().toLocaleString()
         });
     }
-});
+}
 
-router.delete('/remove/:id', async (req, res) => {
+const deleteJob = async (req, res) => {
     try {
         const { id } = req.params;
-        await pool.query('DELETE FROM Jobs WHERE id = ?', id);
+        await pool.query('DELETE FROM Jobs WHERE ID = ?', id);
         res.json({
             ok: true,
             eliminado: true,
@@ -185,6 +184,21 @@ router.delete('/remove/:id', async (req, res) => {
             fecha: new Date().toLocaleString()
         });
     }
-});
+}
+
+router.get('/search/:keywords', searchJob);
+router.get('/get/:id', getJob);
+router.get('/get-by/:by/:data', getByJob)
+router.get('/get-all', getAllJob);
+router.post('/add', addJob);
+router.put('/edit/:id', editJob);
+router.delete('/remove/:id', deleteJob);
 
 module.exports = router;
+
+module.exports.funcs = { 
+    searchJob,
+    getJob,
+    getByJob,
+    getAllJob
+};
