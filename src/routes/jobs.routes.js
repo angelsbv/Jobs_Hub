@@ -19,7 +19,15 @@ router.use((req, res, next) => {
         res.redirect('/');
 })
 
-router.get('/post', (req, res) => {
+const forPosters = (req, res, next) => {
+    const { userRol } = req.user
+    if(userRol >= 1) next();
+    else res.status(404).render('error-404', {
+        layout: 'layouts/M'
+    });
+}
+
+router.get('/post', forPosters, (req, res, next) => {
     res.render('post-job', {
         layout: bLayout
     });
@@ -190,9 +198,9 @@ router.get('/search/:keywords', searchJob);
 router.get('/get/:id', getJob);
 router.get('/get-by/:by/:data', getByJob)
 router.get('/get-all', getAllJob);
-router.post('/add', addJob);
-router.put('/edit/:id', editJob);
-router.delete('/remove/:id', deleteJob);
+router.post('/add', forPosters, addJob);
+router.put('/edit/:id', forPosters, editJob);
+router.delete('/remove/:id', forPosters, deleteJob);
 
 module.exports = router;
 
