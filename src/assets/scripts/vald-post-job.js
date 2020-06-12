@@ -59,7 +59,7 @@ let myId = params.get('id');
 
 
 function editar() {
-    if(myId !== null || myId !== undefined){
+    if(myId !== null){
         const xhttp = new XMLHttpRequest();
         xhttp.open('GET','/job/get/'+myId,true);
         
@@ -67,10 +67,9 @@ function editar() {
         xhttp.onreadystatechange = function(){
             if(this.readyState == 4 && this.status == 200){
                 let datos = JSON.parse(this.responseText);
-                console.log(datos);
 
-               let id = document.querySelector('#id');
-               id.value = datos.ID;
+                let id = document.querySelector('#id');
+                id.value = datos.ID;
 
                 let categoria = document.querySelector('#categoria');
                 categoria.value = datos.categoria;
@@ -100,22 +99,29 @@ function editar() {
 
                 let formulario = document.querySelector('#formulario');
                 formulario.action = '/job/edit/'+myId;
-                formulario.method = 'PUT';
-                formulario.addEventListener('submit', async function () {
-                    e.preventDefault();
-                    const resp = await fetch(`/job/edit/${myId}`, { method: 'PUT', body: { 
-                        "ID":id.value,
-                        "categoria": categoria.value,
-                        "tipo": tipo.value,
-                        "compañia":compañia.value,
-                        "ubicacion": ubicacion.value,
-                        "logo": logo.value,
-                        "posicion": posicion.value,
-                        "descripcion": descripcion.value
-                     } });
-                     const data = await resp.json();
-                     console.log(data);
-                   });
+                formulario.addEventListener('submit', async function (e) {
+                    if(id.value !== null && parseInt($('#authenticity').val()) >= 2){
+                        e.preventDefault();
+                        // const resp =
+                        await fetch(`/job/edit/${myId}`, { 
+                            method: 'PUT', 
+                            body: JSON.stringify({ 
+                                "ID":id.value,
+                                "categoria": categoria.value,
+                                "tipo": tipo.value,
+                                "compañia":compañia.value,
+                                "ubicacion": ubicacion.value,
+                                "logo": logo.value,
+                                "posicion": posicion.value,
+                                "descripcion": descripcion.value
+                            }),
+                            headers:{
+                                "Content-Type": "application/json"
+                            }
+                        });
+                        // const data = await resp.json();
+                    }
+                });
 
             }
         }

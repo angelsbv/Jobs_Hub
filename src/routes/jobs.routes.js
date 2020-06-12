@@ -155,7 +155,7 @@ const editJob = async (req, res) => {
     try {
         const { id } = req.params;
         const { body } = req;
-        await pool.query('UPDATE Jobs SET ? WHERE ID = '+id, body);
+        await pool.query(`UPDATE Jobs SET ? WHERE ID = ${id}`, body);
         res.json({
             ok: true,
             editado: true,

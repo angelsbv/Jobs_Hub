@@ -5,12 +5,17 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
 <main class="contenedor">
+  <input type="hidden" name="id" id="id" />
+  <input 
+    type="hidden" 
+    value=<%- user.userRol %> 
+    id="authenticity" 
+  />
   <form id="formulario" action="/job/add" method="POST" class="form-post-a-job row">
     <div class="form-container row">
-      <h1 class="text-center">Publicar un trabajo</h1>
+      <h1 class="text-center form-title">Publicar un trabajo</h1>
       <div class="row">
         <div class="col-md-6 form-group">
-          <input type="hidden" name="id" id="id">
           <label for="categoria">Categor&iacute;a</label>
           <select class="form-control" name="categoria" id="categoria">
             <option value="">--Elegir--</option>
