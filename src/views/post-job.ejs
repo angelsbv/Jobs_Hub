@@ -3,97 +3,76 @@
 <title>Publicar un trabajo</title>
 <link rel="stylesheet" href="/styles/post_a_job.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-<header>
-  <div class="contenedor">
-    <!--Buscador-->
-    <div class="buscador">
-      <form>
-          <div class="texto form-group mx-sm-3 mb-2">
-              <input class="form-control" type="text" placeholder="Live search" />
-          </div>
-          <button type="submit" class="boton botonsearch btn btn-primary mb-2">Search</button>
-      </form>
-      <button type="submit" class="boton botonpost btn btn-success">Post a Job</button>
-  </div>
-</header>
-      
-<main class="contenedor">
-  <!-- <h2 class="centrar">Postear un trabajo</h2> -->
-  <!-- <div class="grid centrar-columna">
-      <div class="formulario-contacto columna-10"> -->
-          
-        <form action="/job/add" method="POST" class="form-post-a-job row">
-          <div class="form-container row">
-            <h1 class="text-center">Publicar un trabajo</h1>
-                <div class="row">
-                  <div class="col-md-6 form-group">
-                    <label for="categoria">Categor&iacute;a</label>
-                    <select class="form-control" name="categoria" id="categoria">
-                      <option value="">--Elegir--</option>
-                      <option value="Web">Web</option>
-                      <option value="Desktop">Desktop</option>
-                      <option value="Backend">Backend</option>
-                      <option value="Frontend">Frontend</option>
-                      <option value="Programming">Programming</option>
-                    </select>
-                    <p id="adverCategoria" class="text-danger" style="visibility: hidden;">Elija una Categoria</p>
-                  </div>
-                  <div class="col-md-6">
-                    <label>Tipo:</label>
-                    <br>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="tipo" id="tipo1" value="Full time">
-                      <label class="form-check-label" for="tipo1">Full time</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="tipo" id="tipo2" value="Part time">
-                      <label class="form-check-label" for="tipo2">Part time</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="tipo" id="tipo3" value="Freelancer">
-                      <label class="form-check-label" for="tipo3">Freelancer</label>
-                    </div>
-                    <p id="adverTipo" class="text-danger" style="visibility: hidden;">Seleccione un Tipo</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6 form-group">
-                    <label for="compañia">Compañia</label>
-                    <input type="text" class="form-control" id="compañia" name="compañia" placeholder="Nombre de su compañia">
-                    <p id="adverCompa" class="text-danger" style="visibility: hidden;">Ingrese una Compañia</p>
-                  </div>
-                  <div class="col-md-6 form-group">
-                    <label for="ubicacion">Ubicacion</label>
-                    <input type="text" class="form-control" id="ubicacion" name="ubicacion" placeholder="Ubicacion del empleo">
-                    <p id="adverUbi" class="text-danger" style="visibility: hidden;">Ingrese una Ubicacion</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6 form-group">
-                    <label for="logo">Logo</label>
-                    <input type="url" class="form-control" id="logo" name="logo" placeholder="Url de su logo">
-                    <p id="adverLogo" class="text-danger" style="visibility: hidden;">Ingrese el url de un logo</p>
-                  </div>
-                  <div class="col-md-6 form-group">
-                    <label for="posicion">Posicion</label>
-                    <input type="text" class="form-control" id="posicion" name="posicion" placeholder="Posicion del trabajo posteado">
-                    <p id="adverPos" class="text-danger" style="visibility: hidden;">Indique la Posicion</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12 form-group descripcion">
-                    <label for="descripcion">Descripcion</label>
-                    <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="Agregue una descripcion del trabajo y diga como aplicar"></textarea>
-                    <p id="adverDes" class="text-danger" style="visibility: hidden;">Debe completar este campo</p>
-                  </div>
-                </div>
-                <button onclick="return validacion()" class="btn btn-success">Publicar</button>
-              </div>
-            </form>
-            
 
-      <!-- </div>
-  </div> -->
+<main class="contenedor">
+  <form action="/job/add" method="POST" class="form-post-a-job row">
+    <div class="form-container row">
+      <h1 class="text-center">Publicar un trabajo</h1>
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <label for="categoria">Categor&iacute;a</label>
+          <select class="form-control" name="categoria" id="categoria">
+            <option value="">--Elegir--</option>
+            <option value="Web">Web</option>
+            <option value="Desktop">Desktop</option>
+            <option value="Backend">Backend</option>
+            <option value="Frontend">Frontend</option>
+            <option value="Programming">Programming</option>
+          </select>
+          <p id="adverCategoria" class="text-danger" style="visibility: hidden;">Elija una Categoria</p>
+        </div>
+        <div class="col-md-6">
+          <label>Tipo:</label>
+          <br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="tipo" id="tipo1" value="Full time">
+            <label class="form-check-label" for="tipo1">Full time</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="tipo" id="tipo2" value="Part time">
+            <label class="form-check-label" for="tipo2">Part time</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="tipo" id="tipo3" value="Freelancer">
+            <label class="form-check-label" for="tipo3">Freelancer</label>
+          </div>
+          <p id="adverTipo" class="text-danger" style="visibility: hidden;">Seleccione un Tipo</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <label for="compañia">Compañia</label>
+          <input type="text" class="form-control" id="compañia" name="compañia" placeholder="Nombre de su compañia">
+          <p id="adverCompa" class="text-danger" style="visibility: hidden;">Ingrese una Compañia</p>
+        </div>
+        <div class="col-md-6 form-group">
+          <label for="ubicacion">Ubicacion</label>
+          <input type="text" class="form-control" id="ubicacion" name="ubicacion" placeholder="Ubicacion del empleo">
+          <p id="adverUbi" class="text-danger" style="visibility: hidden;">Ingrese una Ubicacion</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <label for="logo">Logo</label>
+          <input type="url" class="form-control" id="logo" name="logo" placeholder="Url de su logo">
+          <p id="adverLogo" class="text-danger" style="visibility: hidden;">Ingrese el url de un logo</p>
+        </div>
+        <div class="col-md-6 form-group">
+          <label for="posicion">Posicion</label>
+          <input type="text" class="form-control" id="posicion" name="posicion" placeholder="Posicion del trabajo posteado">
+          <p id="adverPos" class="text-danger" style="visibility: hidden;">Indique la Posicion</p>
+        </div>
+      </div>
+        <div class="row">
+          <div class="col-md-12 form-group descripcion">
+            <label for="descripcion">Descripcion</label>
+            <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="Agregue una descripcion del trabajo y diga como aplicar"></textarea>
+            <p id="adverDes" class="text-danger" style="visibility: hidden;">Debe completar este campo</p>
+          </div>
+        </div>
+      <button onclick="return validacion()" class="btn btn-success">Publicar</button>
+    </div>
+  </form>
   <script type="text/javascript" src="/scripts/vald-post-job.js"></script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>

@@ -41,6 +41,16 @@ h1 {
     display: inline-block;
 }
 
+.texto{
+    margin: 0 !important;
+    margin-right: 8px !important;
+}
+
+.buscador>form{
+    display: flex;
+    align-items: end;
+}
+
 .boton {
     font-size: 15px;
     padding: 4px 20px;
@@ -63,4 +73,14 @@ h1 {
 
 .more-jobs{
     float: right;
+}
+
+.btn-post-job{
+    display: flex;
+    align-items: center;
+}
+
+.jobs-container{
+    padding: 0;
+    margin: 15px 0;
 }
