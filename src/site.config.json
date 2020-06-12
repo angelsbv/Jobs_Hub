@@ -1,4 +1,10 @@
 {
-    "maxJobsInMainPage": 10,
-    "categories": ["Web", "Desktop", "Backend", "Frontend", "Programming"]
+  "maxJobsInMainPage": 10,
+  "categories": [
+    "Web",
+    "Desktop",
+    "Backend",
+    "Frontend",
+    "Programming"
+  ]
 }
