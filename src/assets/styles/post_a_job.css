@@ -42,7 +42,7 @@ body{
 {
 	display: flex;
 	justify-content: space-between;
-	margin: 35px 15px 15px 15px;
+	margin: 70px 15px 15px 15px;
 }
 
 .botonsearch
@@ -59,7 +59,7 @@ body{
 .principal
 {
 	display: flex;
-	margin: 20px 15px 0 15px;
+	margin: 50px 15px 0 15px;
 }
 
 .contenedor
