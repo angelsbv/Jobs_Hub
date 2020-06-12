@@ -46,6 +46,7 @@ app.use((req, res, next) => {
 app.use('/', require('./routes/index.routes'));
 app.use('/job', require('./routes/jobs.routes'));
 app.use('/api/v1', require('./routes/dev-api.v1.routes'));
+app.use('/adm', require('./routes/admin.routes'));
 
 // Error 404
 app.use((req, res, next) => {
