@@ -1,7 +1,7 @@
 
 let newCategoryTemplate = `<div class="category">
     <h1>{title}</h1>
-    <table class="table tabla-design table-hover">
+    <table class="table tabla-design table-hover table-bordered border-dark">
         <thead class="thead-light">
             <tr>
                 <th>Location</th>
