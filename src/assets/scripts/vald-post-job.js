@@ -53,3 +53,74 @@ function validacion() {
     }
     return permiso;
 }
+
+let params = (new URL(location.href)).searchParams;
+let myId = params.get('id');
+
+
+function editar() {
+    if(myId !== null || myId !== undefined){
+        const xhttp = new XMLHttpRequest();
+        xhttp.open('GET','/job/get/'+myId,true);
+        
+        xhttp.send();
+        xhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                let datos = JSON.parse(this.responseText);
+                console.log(datos);
+
+               let id = document.querySelector('#id');
+               id.value = datos.ID;
+
+                let categoria = document.querySelector('#categoria');
+                categoria.value = datos.categoria;
+
+                let compañia = document.querySelector('#compañia');
+                compañia.value = datos.compañia;
+                
+                let ubicacion = document.querySelector('#ubicacion');
+                ubicacion.value = datos.ubicacion;
+
+                let logo = document.querySelector('#logo');
+                logo.value = datos.logo;
+
+                let posicion = document.querySelector('#posicion');
+                posicion.value = datos.posicion;
+
+                let descripcion = document.querySelector('#descripcion');
+                descripcion.value = datos.descripcion;
+
+                var tipos = document.getElementsByName("tipo");
+
+                for(var i = 0; i < tipos.length; i++) {
+                    if(tipos[i].value == datos.tipo){
+                        tipos[i].checked = true;
+                    }
+                }
+
+                let formulario = document.querySelector('#formulario');
+                formulario.action = '/job/edit/'+myId;
+                formulario.method = 'PUT';
+                formulario.addEventListener('submit', async function () {
+                    e.preventDefault();
+                    const resp = await fetch(`/job/edit/${myId}`, { method: 'PUT', body: { 
+                        "ID":id.value,
+                        "categoria": categoria.value,
+                        "tipo": tipo.value,
+                        "compañia":compañia.value,
+                        "ubicacion": ubicacion.value,
+                        "logo": logo.value,
+                        "posicion": posicion.value,
+                        "descripcion": descripcion.value
+                     } });
+                     const data = await resp.json();
+                     console.log(data);
+                   });
+
+            }
+        }
+    }
+}
+
+editar();
+
