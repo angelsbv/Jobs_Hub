@@ -47,3 +47,24 @@ if(comprobar){
 }else{
 traerDatos();
 }
+
+function eliminar() {
+    var opcion = confirm('Esta seguro?');
+    if(opcion === true){
+        const xhttp = new XMLHttpRequest();
+        xhttp.open('DELETE','/job/remove/'+myId,true);
+    
+        xhttp.send();
+        window.location="http://localhost:3000";
+    }else{
+        window.location="http://localhost:3000/job/details?id="+myId;
+    }
+}
+
+function editar() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.open('PUT','/job/edit/'+myId,true);
+    
+    xhttp.send();
+    window.location="http://localhost:3000/job/post?id="+myId;
+}

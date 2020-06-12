@@ -28,5 +28,11 @@
                 <p id="descripcion"></p>
             </div>
         </div>
+        <div class="float-right">
+            <% if(user.userRol >= 2){ %> 
+                <a class="btn btn-danger" onclick="eliminar()" role="button">Eliminar</a>
+                <a class="btn btn-secondary" onclick="editar()" role="button">Editar</a>
+            <% } %> 
+        </div>
         <script type="text/javascript" src="/scripts/job_details.js"></script>
 
