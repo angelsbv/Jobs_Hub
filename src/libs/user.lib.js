@@ -42,7 +42,6 @@ module.exports.sendConfirmationMail = async ({ headers: { origin } }, { email })
                 </div>
             </div>
             `
-            // <a>${origin}/c/${token}</a>
         }
         
         const transporter = nodemailer.createTransport({

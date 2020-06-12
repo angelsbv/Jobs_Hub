@@ -141,6 +141,7 @@ body{
 	border-radius: 10px;
 	padding: 42px;
 	margin-bottom: 25px;
+	margin-top: 25px;
 	-webkit-box-shadow: rgba(0,0,0,0.6) 0 0 2.67px;
     -moz-box-shadow: rgba(0,0,0,0.6) 0 0 2.67px;
     box-shadow: rgba(0,0,0,0.6) 0 0 2.67px;

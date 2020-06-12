@@ -13,9 +13,9 @@ let newCategoryTemplate = `<div class="category">
         </tbody>
     </table>
     <a class="more-jobs" href="/job/category?categoryName={category-name}">{rest}</a>
-</div>`
+</div>`;
 
-const container = document.querySelector(".contenedor")
+const container = document.querySelector(".jobs-container")
 
 async function getJobs()
 {
@@ -69,7 +69,7 @@ async function getJobs()
 
 const tRowClickHandler = (e) => {
     let trow = e.target.parentElement;
-    if(trow.tagName == 'TR'){
+    if(trow.tagName == 'TR' && trow.childNodes[1].tagName !== 'TH'){
         location.href = `${location.origin}/job/details?id=${trow.id}`;
     }
 }

@@ -3,19 +3,30 @@
 <!--<link rel="stylesheet" href="../assets/styles/principal.css">-->
 <link rel="stylesheet" href="/styles/st.css">
 
-<div class="contenedor principal-box">
+<div class="container contenedor principal-box">
     <!--Buscador-->
     <div class="buscador">
-        <form>
+        <form id="search-form">
             <div class="texto form-group mx-sm-3 mb-2">
-                <input class="form-control" type="text" placeholder="Live search" />
+                <input 
+                    name="search" 
+                    class="form-control"
+                    type="text" 
+                    placeholder="Live search"
+                    id="search-field"
+                />
             </div>
-            <button type="submit" class="boton botonsearch btn btn-primary mb-2">Search</button>
+            <button 
+                type="submit" 
+                id="btn-search" 
+                class="boton botonsearch btn btn-primary mb-2"
+            >Search</button>
         </form>
-          <a class="boton btn btn-success" href="/job/post">Post a Job</a>
+        <a class="boton btn-post-job btn btn-success" href="/job/post">Post a Job</a>
     </div>
-    <!--Buscador-->
-
+    <!-- /Buscador -->
+    
+    <div class="jobs-container"></div>
     <script type="text/javascript" src="/scripts/jobs.dev01.js"></script>
-
+    <script type="text/javascript" src="/scripts/search.dev01.js"></script>
 </div>

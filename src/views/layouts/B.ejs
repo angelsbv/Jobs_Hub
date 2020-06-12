@@ -8,30 +8,30 @@
     <link rel="stylesheet" href="/styles/global.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-bottom: -50px;">
-           <div class="text-lg" >
-            <span class="navbar-brand text-lg bg-dark text-light mb-0 h1" style="font-size: large;">Jobs Hub</span>
-           </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="\">Home <span class="sr-only">(current)</span></a>
-            </li>
-          </ul>
-          <a class="btn btn-outline-warning btn-lg" href="/logout" role="button">Salir</a>
-        </div>
-      </nav>
-    <div>
-        <%- body %>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="text-lg" >
+        <span class="navbar-brand text-lg bg-dark text-light mb-0 h1" style="font-size: large;">Jobs Hub</span>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="\">Home <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+        <a class="btn btn-outline-warning btn-lg" href="/logout" role="button">Salir</a>
+      </div>
+  </nav>
+  <div class="main-container">
+      <%- body %>
+  </div>
+  <footer class="footer mt-auto py-3 bg-dark text-secondary" style="margin-top: -80px;">
+    <div class="container">
+      <span>Programacion III - Proyecto Web</span>
+      <span class="float-right">Jobs Hub</span>
     </div>
-    <footer class="footer mt-auto py-3 bg-dark text-secondary" style="margin-top: -80px;">
-        <div class="container">
-          <span>Programacion III - Proyecto Web</span>
-          <span class="float-right">Jobs Hub</span>
-        </div>
-      </footer>
+  </footer>
 </body>
 </html>
