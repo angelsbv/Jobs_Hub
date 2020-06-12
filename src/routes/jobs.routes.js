@@ -46,9 +46,9 @@ router.get('/search/:keywords', async (req, res) => {
             let keyword = keywords[k];
             let [rs] = await pool.query(`CALL searchJob('${keyword}')`)
             for(let r in rs){
-                if(exists[rs[r].ID] === undefined)
+                if(exists[rs[r]] === undefined)
                     results.push(rs[r]);
-                exists[rs[r].ID] = rs[r].ID;
+                exists[rs[r]] = rs[r].ID;
             }
         }
         console.log(exists);
