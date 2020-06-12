@@ -130,3 +130,22 @@ function editar() {
 
 editar();
 
+window.onload = () => {
+    const selectCategoria = document.querySelector('#categoria');
+    const getCategories = async () => {
+        try {
+            const resp = await fetch('/adm/get-site-config');
+            const data = await resp.json();
+            for(let i in data.config.categories){
+                let category = data.config.categories[i];
+                let opt = document.createElement('option');
+                opt.value = category;
+                opt.innerHTML = category;
+                selectCategoria.appendChild(opt);
+            }
+        } catch (error) {
+            throw error;
+        }
+    }
+    getCategories();
+}

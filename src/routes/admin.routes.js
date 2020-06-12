@@ -15,7 +15,7 @@ const forAdmins = (req, res, next) => {
     });
 }
 
-router.get('/get-site-config', forAdmins, async (req, res) => {
+router.get('/get-site-config', async (req, res) => {
     try {
         const data = await readFile(configPath);
         res.json({
