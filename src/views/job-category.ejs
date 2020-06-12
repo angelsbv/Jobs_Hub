@@ -1,45 +1,24 @@
 
-		<meta charset="utf-8">
-    <title>Trabajo por categoria</title>
-		<link rel="stylesheet" href="/styles/work_by_category.css">
-    <div class="contenedor work_category-box">  
-          
-      <div class="principal">
-        <!--Programming-->
-        <h4>Programming</h4><hr>
-            
-        <!--Creando tabla de programing-->
-        <table class="table tabla-programming">
-          <thead class="thead-light">
-            <tr>
-              <th>Location</th>
-              <th>Position</th>
-              <th>Company</th>
-            </tr>
-          </thead>
-          <tr>
-            <td>Paris France</td>
-            <td>Web Designer</td>
-            <td>Sensio Labs</td>
-          </tr>
-          <tr>
-            <td>Paris France</td>
-            <td>Web Designer</td>
-            <td>Sensio Labs</td>
-          </tr>
-        </table>
+<title>Trabajo por categoria</title>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="/styles/work_by_category.css">
 
-        <!--conteo del numero de paginas-->
-        <div class="conteoPaginas">
-          <label class="countjobs" for="Count_Jobs"><span>33</span></label>
-          Jobs in this category - Page 
-          <label class="countpage" for="Count_Page"><span>1/7</span></label>
-        </div>
-
-        <!--Botones de anterior y siguente-->
-        <div class="botonespaginacion">
-          <button class="btn btn-secondary" type="button">Previous</button>
-          <button class="btn btn-secondary" type="button">Next</button>
-        </div>
-      </div>
-    </div>
+<div class="contenedor work_category-box">  
+  <div class="principal">
+    <h1 id="category-title"></h1>
+    <table id="datatable">
+      <thead>
+        <tr>
+          <th>Location</th>
+          <th>Position</th>
+          <th>Company</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+</div>
+<script src="/dist/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="/scripts/job-category.dev01.js"></script>
