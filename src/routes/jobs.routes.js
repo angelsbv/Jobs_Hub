@@ -41,13 +41,17 @@ router.get('/search/:keywords', async (req, res) => {
     try {
         const keywords = req.params.keywords.split(' ');
         let results = [];
+        let exists = {};
         for(let k in keywords){
             let keyword = keywords[k];
             let [rs] = await pool.query(`CALL searchJob('${keyword}')`)
             for(let r in rs){
-                results.push(rs[r]);
+                if(exists[rs[r].ID] === undefined)
+                    results.push(rs[r]);
+                exists[rs[r].ID] = rs[r].ID;
             }
         }
+        console.log(exists);
         res.json({ 
             ok: true, 
             results
