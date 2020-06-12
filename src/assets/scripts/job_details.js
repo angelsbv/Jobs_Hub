@@ -2,7 +2,6 @@ let params = (new URL(location.href)).searchParams;
 
 let myId = params.get('id');
 var comprobar = false;
-console.log(myId);
 
 function permiso(){
     if(myId == null || myId == undefined || myId == 0){
@@ -23,7 +22,6 @@ function traerDatos() {
         if(this.readyState == 4 && this.status == 200){
             
             let datos = JSON.parse(this.responseText);
-            console.log(datos);
            
             let logo = document.querySelector('#logo');
             logo.src = datos.logo;
@@ -40,7 +38,6 @@ function traerDatos() {
            let descripcion = document.querySelector('#descripcion');
            descripcion.innerText = datos.descripcion;
         } else if(this.status == 404){
-            console.log('Estoy aqui >:v');
             window.location="http://localhost:3000/error404";
         }
     }

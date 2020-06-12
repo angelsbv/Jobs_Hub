@@ -23,7 +23,7 @@ const searchFormSubmitHandler = (e) => {
     if(searchField.value.trim().length > 0){
         getResults()
         .then(({ results }) => {
-            if(results.length > 0){
+            if(undefined !== results && results.length > 0){
                 container.innerHTML = resultsTemplate;
                 const resultsTbody = document.querySelector('.results');
                 for(let i in results){
