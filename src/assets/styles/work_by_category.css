@@ -56,3 +56,7 @@ body{
 	display: flex;
 	justify-content: space-between;
 }
+
+.contenedor{
+	margin: 40px 0;
+}
