@@ -19,6 +19,8 @@ CREATE TABLE PostersInfo(
     empresa varchar(54) NOT NULL,
     emailEmpresa varchar(255) NOT NULL,
     telefonoEmpresa varchar(30) NOT NULL,
+    APIUID varchar(255) NOT NULL,
+    APIToken varchar(255) NOT NULL,
     PRIMARY KEY (ID),
     FOREIGN KEY (userID) REFERENCES Users(ID)
 );
