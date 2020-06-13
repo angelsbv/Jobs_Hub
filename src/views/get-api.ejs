@@ -7,29 +7,29 @@
     <h2 class="text-center">Jobs Hub - API</h2>
     <hr> <br>
     <div>
-        <h4 class="text-center">FORMAT: V1 - Version1.</h4>
+        <h4 class="text-center">FORMAT: V1 - Versi&oacute;n 1.</h4>
  <h5><b> # Jobs Hub </b></h5>
-  <p>En la API Jobs Hub es obligatorio autenticarse en este caso como poster mediante un token
+  <p>Para utilizar la API p&uacute;blica de Jobs Hub es obligatorio autenticarse como poster mediante un token
 y así tener acceso a la documentación.
 Dicho token se compone de dos partes dividido por un slash o barra diagonal (/). La
 primera parte es el ID del poster y la segunda parte es un hash único generado con un
 módulo de NodeJS llamado UUID.
-En esta primera versión la API consta de cuatro endpoints a través del método GET.
+En esta primera versión la API <code>/api/v1</code> consta de cuatro endpoints a través del método GET.
 Debemos tener claro que cuando se vaya a hacer una petición a la API debe ser con un
 header, dicho header se llama ajh (Authentication Jobs Hub).
 <p>El token correspondido para su cuenta (<b><%= user.username %></b>) es: <code style="overflow-wrap: break-word;" id="token"><%= user.APIToken %></code></p></p>
-<h5><b>Primer EndPoint.</b></h5>
-<p><b>/search/:keywords:</b> el cual recibe como un parámetro :keywords. Teniendo en cuenta
+<h5><b>Primer Endpoint.</b></h5>
+<p><b>/search/:keywords</b>: el cual recibe como un parámetro :keywords. Teniendo en cuenta
 que en el parámetro “keywords” hay que usar encodeUriComponent función nativa de
 JavaScript para convertir string a un "formato de URL" o su equivalente en otras tecnolog&iacute;as.</p>
-<h5><b>Segundo EndPoint.</b></h5>
-<p><b>/getjob/:id</b> : Acá se pondrá el id del Job que se quiera obtener, en caso de que no exista te
+<h5><b>Segundo Endpoint.</b></h5>
+<p><b>/get/:id</b>: Acá se pondrá el id del Job que se quiera obtener, en caso de que no exista te
 devolverá un error (404).</p>
-<h5><b>Tercer EndPoint.</b></h5>
-<p><b>/get-by/:by/:data</b> : Aquí se podrán obtener datos en específico, por ejemplo, si quisiera
+<h5><b>Tercer Endpoint.</b></h5>
+<p><b>/get-by/:by/:data</b>: Aquí se podrán obtener datos en específico, por ejemplo, si quisiera
 traer todos los Jobs de categoría web, pues debe poner en este caso categoría en el
 parámetro ‘by’ y la palabra clave en el parámetro ‘data’. Sería algo como /getby/categoría/Web.</p>
-<h5><b>Cuarto EndPoint.</b></h5>
+<h5><b>Cuarto Endpoint.</b></h5>
 <p><b>/get-all</b>: En este se podrán traer todos los trabajos disponibles.</p>
 <p><b>Nota</b>: Para todas las peticiones y/o consultas se debe establecer la cabecera/header <code>ajh</code> con el <a href="#token">token</a> como valor.</p>
 </div>
