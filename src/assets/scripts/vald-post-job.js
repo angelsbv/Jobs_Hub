@@ -119,7 +119,7 @@ function editar() {
                                 "Content-Type": "application/json"
                             }
                         });
-                        // const data = await resp.json();
+                        location.href = "/";
                     }
                 });
 
