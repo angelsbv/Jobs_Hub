@@ -39,6 +39,32 @@ router.get('/details', (req, res) => {
     });
 });
 
+// router.get('/getapi', forPosters, async (req, res) => {
+//     try {
+//         const data = await readFile(configPath);
+//         res.json({
+//             ok: true, 
+//             config: JSON.parse(data.toString())
+//         });
+//         res.render('get-api', {
+//             layout: bLayout
+//         });
+//     } catch (error) {
+//         res.json({
+//             ok: false,
+//             error: 'Hubo un error con su solicitud' 
+//         });
+//         throw error;
+//     }
+// });
+
+
+router.get('/getapi', forPosters, (req, res) => {
+    res.render('get-api', {
+        layout: bLayout
+    });
+});
+
 router.get('/category', (req, res) => {
     res.render('job-category', {
         layout: bLayout
