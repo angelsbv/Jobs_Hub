@@ -15,6 +15,13 @@ const forAdmins = (req, res, next) => {
     });
 }
 
+router.get('/categoria_adm', forAdmins, (req, res) => {
+    res.render('admin_categories', {
+        layout: 'layouts/B'
+    });
+});
+
+
 router.get('/get-site-config', forAdmins, async (req, res) => {
     try {
         const data = await readFile(configPath);
