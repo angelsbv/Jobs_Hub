@@ -80,9 +80,9 @@ const searchJob = async (req, res) => {
             let keyword = keywords[k];
             let [rs] = await pool.query(`CALL searchJob('${keyword}')`)
             for(let r in rs){
-                if(exists[rs[r]] === undefined)
+                if(exists[rs[r].ID] === undefined)
                     results.push(rs[r]);
-                exists[rs[r]] = rs[r].ID;
+                exists[rs[r].ID] = rs[r].ID;
             }
         }
         res.json({ 
