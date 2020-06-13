@@ -108,7 +108,7 @@ function editar() {
                             body: JSON.stringify({ 
                                 "ID":id.value,
                                 "categoria": categoria.value,
-                                "tipo": tipo.value,
+                                "tipo": $('input[name="tipo"]:checked').val(),
                                 "compañia":compañia.value,
                                 "ubicacion": ubicacion.value,
                                 "logo": logo.value,
@@ -120,6 +120,7 @@ function editar() {
                             }
                         });
                         // const data = await resp.json();
+                        window.location="http://localhost:3000/job/details?id="+myId;
                     }
                 });
 
@@ -129,4 +130,9 @@ function editar() {
 }
 
 editar();
+let formulario = document.querySelector('#formulario');
+formulario.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    window.location="http://localhost:3000/";
+});
 
