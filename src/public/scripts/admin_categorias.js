@@ -1,1 +1,56 @@
-var _0x91e4=["\x47\x45\x54","\x2F\x61\x64\x6D\x2F\x67\x65\x74\x2D\x73\x69\x74\x65\x2D\x63\x6F\x6E\x66\x69\x67","\x6F\x70\x65\x6E","\x73\x65\x6E\x64","\x6F\x6E\x72\x65\x61\x64\x79\x73\x74\x61\x74\x65\x63\x68\x61\x6E\x67\x65","\x72\x65\x61\x64\x79\x53\x74\x61\x74\x65","\x73\x74\x61\x74\x75\x73","\x72\x65\x73\x70\x6F\x6E\x73\x65\x54\x65\x78\x74","\x70\x61\x72\x73\x65","\x74\x62\x6F\x64\x79","\x71\x75\x65\x72\x79\x53\x65\x6C\x65\x63\x74\x6F\x72","\x63\x61\x74\x65\x67\x6F\x72\x69\x65\x73","\x63\x6F\x6E\x66\x69\x67","\x74\x72","\x63\x72\x65\x61\x74\x65\x45\x6C\x65\x6D\x65\x6E\x74","\x74\x64","\x63\x6F\x6E\x74\x65\x6E\x74\x65\x64\x69\x74\x61\x62\x6C\x65","\x74\x72\x75\x65","\x73\x65\x74\x41\x74\x74\x72\x69\x62\x75\x74\x65","\x69\x64","\x63\x65\x6C\x6C","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x61\x70\x70\x65\x6E\x64\x43\x68\x69\x6C\x64","\x23\x6D\x61\x78","\x76\x61\x6C\x75\x65","\x6D\x61\x78\x4A\x6F\x62\x73\x49\x6E\x4D\x61\x69\x6E\x50\x61\x67\x65","\x23\x73\x65\x74\x4D\x61\x78","\x63\x6C\x69\x63\x6B","\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72","\x23\x63\x6F\x6E\x66\x69\x72\x6D","\x70\x72\x65\x76\x65\x6E\x74\x44\x65\x66\x61\x75\x6C\x74","\x2F\x61\x64\x6D\x2F\x73\x65\x74\x2D\x73\x69\x74\x65\x2D\x63\x6F\x6E\x66\x69\x67","\x50\x4F\x53\x54","\x69\x6E\x6E\x65\x72\x54\x65\x78\x74","\x63\x65\x6C\x6C\x30","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x63\x65\x6C\x6C\x31","\x63\x65\x6C\x6C\x32","\x63\x65\x6C\x6C\x33","\x63\x65\x6C\x6C\x34","\x73\x74\x72\x69\x6E\x67\x69\x66\x79","\x61\x70\x70\x6C\x69\x63\x61\x74\x69\x6F\x6E\x2F\x6A\x73\x6F\x6E","\x4C\x6F\x73\x20\x64\x61\x74\x6F\x73\x20\x68\x61\x6E\x20\x73\x69\x64\x6F\x20\x67\x75\x61\x72\x64\x61\x64\x6F\x73\x20\x63\x6F\x72\x72\x65\x63\x74\x61\x6D\x65\x6E\x74\x65\x2E","\x68\x72\x65\x66","\x2F\x61\x64\x6D\x2F\x63\x61\x74\x65\x67\x6F\x72\x69\x61\x5F\x61\x64\x6D"];eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}(';h u(){n i=1y J();i[a[2]](a[0],a[1],M);i[a[3]]();i[a[4]]=h(){O(t[a[5]]==4&&t[a[6]]==V){c l=v[a[8]](t[a[7]]);n E=b[a[10]](a[9]);Q(c o T l[a[12]][a[11]]){c q=b[a[14]](a[13]);c f=b[a[14]](a[15]);f[a[18]](a[16],a[17]);f[a[18]](a[19],a[U]+o);f[a[L]]=l[a[12]][a[11]][o];q[a[D]](f);E[a[D]](q)};c G=1;c j=b[a[10]](a[R]);j[a[p]]=l[a[12]][a[P]];c w=b[a[10]](a[N]);w[a[y]](a[z],h(){G=j[a[p]]});c x=b[a[10]](a[H]);x[a[y]](a[z],I h(F){F[a[W]]();n S=X 1d(`${a[1r]}`,{1s:a[1t],1u:v[a[1v]]({"\\1w\\k\\1q\\1x\\r\\1D\\C\\1z\\m\\1C\\k\\B\\m\\1B\\k\\A\\d":j[a[p]],"\\1A\\k\\s\\d\\A\\r\\1p\\B\\d\\C":[b[a[e]](a[1g])[a[g]],b[a[e]](a[1n])[a[g]],b[a[e]](a[Z])[a[g]],b[a[e]](a[1a])[a[g]],b[a[e]](a[1b])[a[g]]]}),1c:{"\\1o\\r\\m\\s\\d\\m\\s\\1e\\Y\\1f\\1h\\d":a[1i]}});1j(a[1k]);1l[a[1m]]=a[K]})}}}u()',62,102,'||||||||||_0x91e4|document|let|x65|35|_0xee65x7|33|function|_0xee65x2|_0xee65x9|x61|_0xee65x3|x6E|const|_0xee65x5|24|_0xee65x6|x6F|x74|this|categorias|JSON|_0xee65xa|_0xee65xb|28|27|x67|x69|x73|22|_0xee65x4|_0xee65xc|_0xee65x8|29|async|XMLHttpRequest|44|21|true|26|if|25|for|23|_0xee65xd|in|20|200|30|await|x54|37|||||||||||38|39|headers|fetch|x2D|x79|34|x70|41|alert|42|location|43|36|x43|x72|x78|31|method|32|body|40|x6D|x4A|new|x49|x63|x50|x4D|x62'.split('|'),0,{}))
+function categorias() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.open('GET','/adm/get-site-config',true);
+    
+    xhttp.send();
+    
+    xhttp.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            let datos = JSON.parse(this.responseText);
+
+            const tbody = document.querySelector('tbody');
+            for(let i in datos.config.categories){
+                let tr = document.createElement('tr');
+                let td = document.createElement('td');
+                td.setAttribute('contenteditable','true')
+                td.setAttribute('id','cell'+i);
+                td.innerHTML = datos.config.categories[i];
+                tr.appendChild(td);
+                tbody.appendChild(tr);
+            }
+            let newMax = 1
+            let max = document.querySelector('#max');
+            max.value = datos.config.maxJobsInMainPage;
+            let setMax = document.querySelector('#setMax')
+            setMax.addEventListener('click',function(){
+                newMax = max.value;
+            })
+
+            let confirm = document.querySelector('#confirm');
+            confirm.addEventListener('click', async function (e) {
+                    e.preventDefault();
+                    const resp = await fetch(`/adm/set-site-config`, { 
+                        method: 'POST', 
+                        body: JSON.stringify({ 
+                            "maxJobsInMainPage": max.value,
+                            "categories": [
+                                document.getElementById('cell0').innerText,
+                                document.getElementById('cell1').innerText,
+                                document.getElementById('cell2').innerText,
+                                document.getElementById('cell3').innerText,
+                                document.getElementById('cell4').innerText
+                            ]
+                        }),
+                        headers:{
+                            "Content-Type": "application/json"
+                        }
+                    });
+                    // const data = await resp.json();
+                    alert('Los datos han sido guardados correctamente.');
+                    location.href = "/adm/categoria_adm";
+            });
+        }
+    }
+}
+
+categorias();

@@ -2,11 +2,17 @@ const mysql = require('mysql');
 const { promisify } = require('util');
 
 const database = {
-    host: 'sql9.freemysqlhosting.net',
-    user: 'sql9348199',
-    password: 'BpM6JY7Blk',
-    database: 'sql9348199'
+    host: 'localhost',
+    user: 'root',
+    database: 'Jobs_Hub'
 }
+
+// const database = {
+//     host: 'sql9.freemysqlhosting.net',
+//     user: 'sql9348199',
+//     password: 'BpM6JY7Blk',
+//     database: 'sql9348199'
+// }
 
 const pool = mysql.createPool(database);
 
