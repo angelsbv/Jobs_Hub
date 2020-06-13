@@ -22,7 +22,7 @@ app.set('view engine', 'ejs');
 app.set('port', process.env.PORT || 3000);
 app.set('json spaces', 2);
 
-app.use(express.static(path.join(__dirname, 'assets')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(morgan('dev'));
 app.use(session({
     secret: 'qiwhr0iqwhfadb1141-014124_',

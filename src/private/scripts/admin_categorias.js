@@ -46,8 +46,8 @@ function categorias() {
                         }
                     });
                     // const data = await resp.json();
-                    alert('Los datos han sido guatdados correctamente');
-                    window.location="http://localhost:3000/adm/categoria_adm";
+                    alert('Los datos han sido guardados correctamente.');
+                    location.href = "/adm/categoria_adm";
             });
         }
     }

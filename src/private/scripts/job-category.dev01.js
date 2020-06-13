@@ -36,14 +36,4 @@ const init = async () => {
     }
 }
 
-// const tRowClickHandler = (e) => {
-//     let trow = e.target.parentElement;
-//     if(trow){
-//         if(trow.tagName == 'TR' && trow.childNodes[1].tagName !== 'TH'){
-//             location.href = `${location.origin}/job/details?id=${trow.id}`;
-//         }
-//     }
-// }
-
-// tbody.addEventListener('click', tRowClickHandler)
 window.addEventListener('load', init);
