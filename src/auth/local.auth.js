@@ -31,7 +31,15 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser(async (username, done) => {
     const [user] = await pool.query(buildSearchUserQuery(username)());
-    done(null, user);
+    let DEVAPIToken = null;
+    if(user.userRol >= 1){
+        let [APIToken] = await pool.query(`SELECT APIToken FROM PostersInfo WHERE ID = ${user.ID}`);
+        DEVAPIToken = APIToken;
+        user.APIToken = DEVAPIToken.APIToken;
+        done(null, user);
+    }
+    else
+        done(null, user);
 });
 
 /*
@@ -98,13 +106,24 @@ passport.use('local-signin', new LocalStrategy({
 }, async (req, username, password, done) => {
     try {
         let [user] = await pool.query(buildSearchUserQuery(username)());
+        let DEVAPIToken = null;
+        if(user.userRol >= 1){
+            let [APIToken] = await pool.query(`SELECT APIToken FROM PostersInfo WHERE ID = ${user.ID}`);
+            DEVAPIToken = APIToken;
+        }
         if (undefined !== user) {
             if (!comparepwd(password, user.password))
                 done(null, false, req.flash('err', { msg: '!ci!', username, password }))
             else if(!user.emailConfirmed)
                 done(null, false, req.flash('err', { msg: '!nc!', username }));
-            else
-                done(null, user)
+            else{
+                if(user.userRol >= 1){
+                    user.APIToken = DEVAPIToken.APIToken;
+                    done(null, user);
+                }
+                else
+                    done(null, user);
+            }
         }
         else
             done(null, false, req.flash('err', { msg: '!ci!', username, password }));
