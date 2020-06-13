@@ -129,11 +129,11 @@ function editar() {
 }
 
 editar();
-let formulario = document.querySelector('#formulario');
-formulario.addEventListener('submit', async function (e) {
-    e.preventDefault();
-    window.location="/";
-});
+// let formulario = document.querySelector('#formulario');
+// formulario.addEventListener('submit', async function (e) {
+//     e.preventDefault();
+//     window.location="/";
+// });
 
 window.onload = () => {
     const selectCategoria = document.querySelector('#categoria');
