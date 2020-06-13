@@ -134,11 +134,7 @@ const addJob = async (req, res) => {
     try {
         const { body } = req;
         await pool.query('INSERT INTO Jobs SET ?', body);
-        res.json({
-            ok: true,
-            agregado: true,
-            body
-        });
+        res.redirect('/');
     } catch (error) {
         console.error(error);
         res.json({
@@ -148,6 +144,7 @@ const addJob = async (req, res) => {
             info: 'console',
             fecha: new Date().toLocaleString()
         });
+        res.redirect('/');
     }
 }
 
@@ -168,7 +165,6 @@ const editJob = async (req, res) => {
             ok: false,
             agregado: false,
             error: 'Este usuario no se quiere editar, lo estamos intentado :(',
-            info: 'console',
             fecha: new Date().toLocaleString()
         });
     }
