@@ -38,12 +38,12 @@ function traerDatos() {
            let descripcion = document.querySelector('#descripcion');
            descripcion.innerText = datos.descripcion;
         } else if(this.status == 404){
-            window.location="http://localhost:3000/error404";
+            location.href = "/error404";
         }
     }
 }
 if(comprobar){
-    window.location="http://localhost:3000/error404";
+    location.href = "/error404";
 }else{
 traerDatos();
 }
@@ -55,9 +55,9 @@ function eliminar() {
         xhttp.open('DELETE','/job/remove/'+myId,true);
     
         xhttp.send();
-        window.location="http://localhost:3000";
+        window.location="/";
     }else{
-        window.location="http://localhost:3000/job/details?id="+myId;
+        window.location="/job/details?id="+myId;
     }
 }
 
@@ -66,5 +66,5 @@ function editar() {
     xhttp.open('PUT','/job/edit/'+myId,true);
     
     xhttp.send();
-    window.location="http://localhost:3000/job/post?id="+myId;
+    window.location="/job/post?id="+myId;
 }

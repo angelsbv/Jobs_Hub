@@ -5,7 +5,7 @@ const fs = require('fs');
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
-const configPath = path.join(__dirname, '../site.config.json');
+const configPath = path.join(__dirname, '../private/site.config.json');
 
 const forAdmins = (req, res, next) => {
     const { userRol } = req.user

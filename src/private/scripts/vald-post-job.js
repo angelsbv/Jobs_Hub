@@ -132,7 +132,7 @@ editar();
 let formulario = document.querySelector('#formulario');
 formulario.addEventListener('submit', async function (e) {
     e.preventDefault();
-    window.location="http://localhost:3000/";
+    window.location="/";
 });
 
 window.onload = () => {
