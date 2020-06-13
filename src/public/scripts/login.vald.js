@@ -1,1 +1,13 @@
-var _0x4922=["\x23\x75\x73\x65\x72\x6E\x61\x6D\x65","\x71\x75\x65\x72\x79\x53\x65\x6C\x65\x63\x74\x6F\x72","\x23\x70\x61\x73\x73\x77\x6F\x72\x64","\x23\x73\x75\x62\x6D\x69\x74\x42\x74\x6E","\x64\x69\x73\x61\x62\x6C\x65\x64","\x6C\x65\x6E\x67\x74\x68","\x6B\x65\x79\x75\x70","\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72"];eval(function(p,a,c,k,e,d){e=function(c){return c.toString(36)};if(!''.replace(/^/,String)){while(c--){d[c.toString(a)]=k[c]||c.toString(a)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('9 d=b[8[1]](8[0]);9 c=b[8[1]](8[2]);9 g=b[8[1]](8[3]);9 a=()=>{9{f:e}=d;9{f:h}=c;g[8[4]]=(e[8[5]]>0&&h[8[5]]>0?i:j)};d[8[7]](8[6],a);c[8[7]](8[6],a)',20,20,'||||||||_0x4922|const|inputChangeHandler|document|pElem|uElem|uVal|value|sBtn|pVal|false|true'.split('|'),0,{}))
+const uElem = document.querySelector('#username'); //username input
+const pElem = document.querySelector('#password'); //password input
+const sBtn  = document.querySelector('#submitBtn');
+
+const inputChangeHandler = () => {
+    //e.preventDefault();
+    const { value: uVal } = uElem;
+    const { value: pVal } = pElem;
+    sBtn.disabled = (uVal.length > 0 && pVal.length > 0 ? false : true);
+};
+
+uElem.addEventListener('keyup', inputChangeHandler);
+pElem.addEventListener('keyup', inputChangeHandler);

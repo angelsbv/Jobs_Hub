@@ -1,1 +1,156 @@
-var _0xdb9a=["\x63\x61\x74\x65\x67\x6F\x72\x69\x61","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x76\x61\x6C\x75\x65","\x69\x6E\x70\x75\x74\x5B\x6E\x61\x6D\x65\x3D\x22\x74\x69\x70\x6F\x22\x5D\x3A\x63\x68\x65\x63\x6B\x65\x64","\x76\x61\x6C","\x63\x6F\x6D\x70\x61\xF1\x69\x61","\x74\x72\x69\x6D","\x75\x62\x69\x63\x61\x63\x69\x6F\x6E","\x6C\x6F\x67\x6F","\x70\x6F\x73\x69\x63\x69\x6F\x6E","\x64\x65\x73\x63\x72\x69\x70\x63\x69\x6F\x6E","","\x69\x73\x2D\x69\x6E\x76\x61\x6C\x69\x64","\x61\x64\x64\x43\x6C\x61\x73\x73","\x66\x6F\x63\x75\x73","\x23\x63\x61\x74\x65\x67\x6F\x72\x69\x61","\x76\x69\x73\x69\x62\x69\x6C\x69\x74\x79","\x76\x69\x73\x69\x62\x6C\x65","\x63\x73\x73","\x23\x61\x64\x76\x65\x72\x43\x61\x74\x65\x67\x6F\x72\x69\x61","\x3A\x72\x61\x64\x69\x6F","\x23\x61\x64\x76\x65\x72\x54\x69\x70\x6F","\x23\x63\x6F\x6D\x70\x61\xF1\x69\x61","\x23\x61\x64\x76\x65\x72\x43\x6F\x6D\x70\x61","\x23\x75\x62\x69\x63\x61\x63\x69\x6F\x6E","\x23\x61\x64\x76\x65\x72\x55\x62\x69","\x23\x6C\x6F\x67\x6F","\x23\x61\x64\x76\x65\x72\x4C\x6F\x67\x6F","\x23\x70\x6F\x73\x69\x63\x69\x6F\x6E","\x23\x61\x64\x76\x65\x72\x50\x6F\x73","\x23\x64\x65\x73\x63\x72\x69\x70\x63\x69\x6F\x6E","\x23\x61\x64\x76\x65\x72\x44\x65\x73","\x69\x73\x2D\x76\x61\x6C\x69\x64","\x69\x6E\x70\x75\x74","\x68\x69\x64\x64\x65\x6E","\x70","\x73\x65\x61\x72\x63\x68\x50\x61\x72\x61\x6D\x73","\x68\x72\x65\x66","\x69\x64","\x67\x65\x74","\x47\x45\x54","\x2F\x6A\x6F\x62\x2F\x67\x65\x74\x2F","\x6F\x70\x65\x6E","\x73\x65\x6E\x64","\x6F\x6E\x72\x65\x61\x64\x79\x73\x74\x61\x74\x65\x63\x68\x61\x6E\x67\x65","\x72\x65\x61\x64\x79\x53\x74\x61\x74\x65","\x73\x74\x61\x74\x75\x73","\x72\x65\x73\x70\x6F\x6E\x73\x65\x54\x65\x78\x74","\x70\x61\x72\x73\x65","\x23\x69\x64","\x71\x75\x65\x72\x79\x53\x65\x6C\x65\x63\x74\x6F\x72","\x49\x44","\x74\x69\x70\x6F","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x73\x42\x79\x4E\x61\x6D\x65","\x6C\x65\x6E\x67\x74\x68","\x63\x68\x65\x63\x6B\x65\x64","\x23\x66\x6F\x72\x6D\x75\x6C\x61\x72\x69\x6F","\x61\x63\x74\x69\x6F\x6E","\x2F\x6A\x6F\x62\x2F\x65\x64\x69\x74\x2F","\x73\x75\x62\x6D\x69\x74","\x23\x61\x75\x74\x68\x65\x6E\x74\x69\x63\x69\x74\x79","\x70\x72\x65\x76\x65\x6E\x74\x44\x65\x66\x61\x75\x6C\x74","\x50\x55\x54","\x73\x74\x72\x69\x6E\x67\x69\x66\x79","\x61\x70\x70\x6C\x69\x63\x61\x74\x69\x6F\x6E\x2F\x6A\x73\x6F\x6E","\x2F","\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72","\x6C\x6F\x63\x61\x74\x69\x6F\x6E","\x6F\x6E\x6C\x6F\x61\x64","\x2F\x61\x64\x6D\x2F\x67\x65\x74\x2D\x73\x69\x74\x65\x2D\x63\x6F\x6E\x66\x69\x67","\x6A\x73\x6F\x6E","\x63\x61\x74\x65\x67\x6F\x72\x69\x65\x73","\x63\x6F\x6E\x66\x69\x67","\x6F\x70\x74\x69\x6F\x6E","\x63\x72\x65\x61\x74\x65\x45\x6C\x65\x6D\x65\x6E\x74","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x61\x70\x70\x65\x6E\x64\x43\x68\x69\x6C\x64"];eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('d o;d y;d kñq;d l;d m;d n;d p;c K=2B;x 1E(){d 1d=b[a[1]](a[0]);o=1d[a[2]];d 1e=$(a[3]);y=1e[a[4]]();d 1g=b[a[1]](a[5]);kñq=1g[a[2]][a[6]]();d 1h=b[a[1]](a[7]);l=1h[a[2]][a[6]]();d 1i=b[a[1]](a[8]);m=1i[a[2]];d 1j=b[a[1]](a[9]);n=1j[a[2]][a[6]]();d 1m=b[a[1]](a[10]);p=1m[a[2]][a[6]]();e(o===a[11]||o===i||o===s){$(a[15])[a[14]]()[a[13]](a[12]);$(a[19])[a[18]](a[16],a[17])}t{e(y===a[11]||y===i||y===s){$(a[20])[a[14]]()[a[13]](a[12]);$(a[21])[a[18]](a[16],a[17])}t{e(kñq===a[11]||kñq===i||kñq===s){$(a[22])[a[14]]()[a[13]](a[12]);$(a[23])[a[18]](a[16],a[17])}t{e(l===a[11]||l===i||l===s){$(a[24])[a[14]]()[a[13]](a[12]);$(a[25])[a[18]](a[16],a[17])}t{e(m===a[11]||m===i||m===s){$(a[26])[a[14]]()[a[13]](a[12]);$(a[27])[a[18]](a[16],a[17])}t{e(n===a[11]||n===i||n===s){$(a[28])[a[14]]()[a[13]](a[12]);$(a[29])[a[18]](a[16],a[17])}t{e(p===a[11]||p===i||p===s){$(a[1b])[a[14]]()[a[13]](a[12]);$(a[1T])[a[18]](a[16],a[17])}t{$(a[1U])[a[13]](a[1N]);$(a[1A])[a[18]](a[16],a[1C]);K=O}}}}}}};1V K}c V=(S 1O(1r[a[1w]]))[a[1D]];c v=V[a[1L]](a[1z]);x 1v(){e(v!==i){A H=S 1S();H[a[1R]](a[1Q],a[1P]+v,O);H[a[1M]]();H[a[1K]]=x(){e(L[a[1J]]==4&&L[a[1H]]==1I){c h=X[a[1y]](L[a[1G]]);c G=b[a[f]](a[1B]);G[a[2]]=h[a[1F]];c o=b[a[f]](a[15]);o[a[2]]=h[a[0]];c kñq=b[a[f]](a[22]);kñq[a[2]]=h[a[5]];c l=b[a[f]](a[24]);l[a[2]]=h[a[7]];c m=b[a[f]](a[26]);m[a[2]]=h[a[8]];c n=b[a[f]](a[28]);n[a[2]]=h[a[9]];c p=b[a[f]](a[1b]);p[a[2]]=h[a[10]];d J=b[a[1X]](a[R]);1n(d u=0;u<J[a[2x]];u++){e(J[u][a[2]]==h[a[R]]){J[u][a[2y]]=O}};c w=b[a[f]](a[1t]);w[a[2z]]=a[T]+v;w[a[1x]](a[1s],P x(E){e(G[a[2]]!==i&&2A($(a[2w])[a[4]]())>=2){E[a[1u]]();M 1p(`${a[T]}${v}${a[11]}`,{2C:a[1W],2G:X[a[2D]]({"\\2E\\2F":G[a[2]],"\\r\\C\\F\\D\\Y\\g\\U\\j\\C":o[a[2]],"\\F\\j\\z\\g":$(a[3])[a[4]](),"\\r\\g\\2v\\z\\C\\2j\\j\\C":kñq[a[2]],"\\2t\\1Z\\j\\r\\C\\r\\j\\g\\B":l[a[2]],"\\2a\\g\\Y\\g":m[a[2]],"\\z\\g\\Z\\j\\r\\j\\g\\B":n[a[2]],"\\2b\\D\\Z\\r\\U\\j\\z\\r\\j\\g\\B":p[a[2]]}),2c:{"\\2d\\g\\B\\F\\D\\B\\F\\2e\\2u\\2f\\z\\D":a[2g]}});1r[a[1w]]=a[1q]}})}}}}1v();c w=b[a[f]](a[1t]);w[a[1x]](a[1s],P x(E){E[a[1u]]();1c[a[2h]]=a[1q]});1c[a[1Y]]=()=>{A 1f=b[a[f]](a[15]);A 1a=P()=>{2i{A 1o=M 1p(a[2k]);A N=M 1o[a[2l]]();1n(c u 2m N[a[1l]][a[1k]]){c Q=N[a[1l]][a[1k]][u];c I=b[a[2n]](a[2o]);I[a[2]]=Q;I[a[2p]]=Q;1f[a[2q]](I)}}2r(W){2s W}};1a()}',62,167,'||||||||||_0xdb9a|document|let|var|if|50|x6F|_0xa9d1x15|null|x69|compa|ubicacion|logo|posicion|categoria|descripcion|ia|x63|undefined|else|_0xa9d1x18|myId|formulario|function|tipo|x70|const|x6E|x61|x65|_0xa9d1x1a|x74|_0xa9d1x16|_0xa9d1x14|_0xa9d1x20|_0xa9d1x17|permiso|this|await|_0xa9d1x1e|true|async|_0xa9d1x1f|52|new|58|x72|params|error|JSON|x67|x73|||||||||||_0xa9d1x1c|30|window|_0xa9d1xa|_0xa9d1xb|_0xa9d1x1b|_0xa9d1xc|_0xa9d1xd|_0xa9d1xe|_0xa9d1xf|71|72|_0xa9d1x10|for|_0xa9d1x1d|fetch|65|location|59|56|61|editar|37|66|48|38|35|49|34|36|validacion|51|47|46|200|45|44|39|43|32|URL|41|40|42|XMLHttpRequest|31|33|return|62|53|68|x62|||||||||||x6C|x64|headers|x43|x2D|x79|64|67|try|xF1|69|70|in|74|73|75|76|catch|throw|x75|x54|x6D|60|54|55|57|parseInt|false|method|63|x49|x44|body'.split('|'),0,{}))
+var categoria;
+var tipo;
+var compañia;
+var ubicacion;
+var logo;
+var posicion;
+var descripcion;
+
+let permiso = false;
+
+function validacion() {
+    var categoriaInput = document.getElementById('categoria');
+    categoria = categoriaInput.value;
+    var tipoInput = $('input[name="tipo"]:checked');
+    tipo = tipoInput.val();
+    var compañiaInput = document.getElementById('compañia');
+    compañia = compañiaInput.value.trim();
+    var ubicacionInput = document.getElementById('ubicacion');
+    ubicacion = ubicacionInput.value.trim();
+    var logoInput = document.getElementById('logo');
+    logo = logoInput.value;
+    
+    var posicionInput = document.getElementById('posicion');
+    posicion = posicionInput.value .trim();
+    var descripcionInput = document.getElementById('descripcion');
+    descripcion = descripcionInput.value.trim();
+
+    if(categoria === "" || categoria === null || categoria === undefined){
+        $('#categoria').focus().addClass('is-invalid');
+        $('#adverCategoria').css('visibility','visible');
+    }else if(tipo === "" || tipo === null || tipo === undefined){
+        $(':radio').focus().addClass('is-invalid');
+        $('#adverTipo').css('visibility','visible');
+    }else if(compañia === "" || compañia === null || compañia === undefined){
+        $('#compañia').focus().addClass('is-invalid');
+        $('#adverCompa').css('visibility','visible');
+    }else if(ubicacion === "" || ubicacion === null || ubicacion === undefined){
+        $('#ubicacion').focus().addClass('is-invalid');
+        $('#adverUbi').css('visibility','visible');
+    }else if(logo === "" || logo === null || logo === undefined){
+        $('#logo').focus().addClass('is-invalid');
+        $('#adverLogo').css('visibility','visible');
+    }else if(posicion === "" || posicion === null || posicion === undefined){
+        $('#posicion').focus().addClass('is-invalid');
+        $('#adverPos').css('visibility','visible');
+    }else if(descripcion === "" || descripcion === null || descripcion === undefined){
+        $('#descripcion').focus().addClass('is-invalid');
+        $('#adverDes').css('visibility','visible');
+    }else{
+        $('input').addClass('is-valid');
+        $('p').css('visibility','hidden');
+        permiso = true;
+    }
+    return permiso;
+}
+
+let params = (new URL(location.href)).searchParams;
+let myId = params.get('id');
+
+
+function editar() {
+    if(myId !== null){
+        const xhttp = new XMLHttpRequest();
+        xhttp.open('GET','/job/get/'+myId,true);
+        
+        xhttp.send();
+        xhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                let datos = JSON.parse(this.responseText);
+
+                let id = document.querySelector('#id');
+                id.value = datos.ID;
+
+                let categoria = document.querySelector('#categoria');
+                categoria.value = datos.categoria;
+
+                let compañia = document.querySelector('#compañia');
+                compañia.value = datos.compañia;
+                
+                let ubicacion = document.querySelector('#ubicacion');
+                ubicacion.value = datos.ubicacion;
+
+                let logo = document.querySelector('#logo');
+                logo.value = datos.logo;
+
+                let posicion = document.querySelector('#posicion');
+                posicion.value = datos.posicion;
+
+                let descripcion = document.querySelector('#descripcion');
+                descripcion.value = datos.descripcion;
+
+                var tipos = document.getElementsByName("tipo");
+
+                for(var i = 0; i < tipos.length; i++) {
+                    if(tipos[i].value == datos.tipo){
+                        tipos[i].checked = true;
+                    }
+                }
+
+                let formulario = document.querySelector('#formulario');
+                formulario.action = '/job/edit/'+myId;
+                formulario.addEventListener('submit', async function (e) {
+                    if(id.value !== null && parseInt($('#authenticity').val()) >= 2){
+                        e.preventDefault();
+                        // const resp =
+                        await fetch(`/job/edit/${myId}`, { 
+                            method: 'PUT', 
+                            body: JSON.stringify({ 
+                                "ID":id.value,
+                                "categoria": categoria.value,
+                                "tipo": $('input[name="tipo"]:checked').val(),
+                                "compañia":compañia.value,
+                                "ubicacion": ubicacion.value,
+                                "logo": logo.value,
+                                "posicion": posicion.value,
+                                "descripcion": descripcion.value
+                            }),
+                            headers:{
+                                "Content-Type": "application/json"
+                            }
+                        });
+                        location.href = "/";
+                    }
+                });
+
+            }
+        }
+    }
+}
+
+editar();
+let formulario = document.querySelector('#formulario');
+formulario.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    window.location="/";
+});
+
+window.onload = () => {
+    const selectCategoria = document.querySelector('#categoria');
+    const getCategories = async () => {
+        try {
+            const resp = await fetch('/adm/get-site-config');
+            const data = await resp.json();
+            for(let i in data.config.categories){
+                let category = data.config.categories[i];
+                let opt = document.createElement('option');
+                opt.value = category;
+                opt.innerHTML = category;
+                selectCategoria.appendChild(opt);
+            }
+        } catch (error) {
+            throw error;
+        }
+    }
+    getCategories();
+}
