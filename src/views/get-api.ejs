@@ -1,4 +1,4 @@
-<title>Get API</title>
+<title>API Docs</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <script src="https://kit.fontawesome.com/ca95e6a565.js" crossorigin="anonymous"></script>
 <!-- <link rel="stylesheet" href="/styles/st.css"> -->
@@ -13,16 +13,17 @@
 y así tener acceso a la documentación.
 Dicho token se compone de dos partes dividido por un slash o barra diagonal (/). La
 primera parte es el ID del poster y la segunda parte es un hash único generado con un
-módulo de NodeJS llamada UUID.
+módulo de NodeJS llamado UUID.
 En esta primera versión la API consta de cuatro endpoints a través del método GET.
 Debemos tener claro que cuando se vaya a hacer una petición a la API debe ser con un
-header, dicho header se llama ajh (Authentication Jobs Hub).</p>
+header, dicho header se llama ajh (Authentication Jobs Hub).
+<p>El token correspondido para su cuenta (<b><%= user.username %></b>) es: <code style="overflow-wrap: break-word;" id="token"><%= user.APIToken %></code></p></p>
 <h5><b>Primer EndPoint.</b></h5>
-<p><b>SearchJob:</b> el cual recibe como un parámetro /searchJob/:keywords. Teniendo en cuenta
+<p><b>/search/:keywords:</b> el cual recibe como un parámetro :keywords. Teniendo en cuenta
 que en el parámetro “keywords” hay que usar encodeUriComponent función nativa de
-JavaScript.</p>
+JavaScript para convertir string a un "formato de URL" o su equivalente en otras tecnolog&iacute;as.</p>
 <h5><b>Segundo EndPoint.</b></h5>
-<p><b>/getJob/:id</b> : Acá se pondrá el id del Job que se quiera obtener, en caso de que no exista te
+<p><b>/getjob/:id</b> : Acá se pondrá el id del Job que se quiera obtener, en caso de que no exista te
 devolverá un error (404).</p>
 <h5><b>Tercer EndPoint.</b></h5>
 <p><b>/get-by/:by/:data</b> : Aquí se podrán obtener datos en específico, por ejemplo, si quisiera
@@ -30,5 +31,6 @@ traer todos los Jobs de categoría web, pues debe poner en este caso categoría 
 parámetro ‘by’ y la palabra clave en el parámetro ‘data’. Sería algo como /getby/categoría/Web.</p>
 <h5><b>Cuarto EndPoint.</b></h5>
 <p><b>/get-all</b>: En este se podrán traer todos los trabajos disponibles.</p>
-    </div>
+<p><b>Nota</b>: Para todas las peticiones y/o consultas se debe establecer la cabecera/header <code>ajh</code> con el <a href="#token">token</a> como valor.</p>
+</div>
 </div>
