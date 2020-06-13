@@ -22,7 +22,7 @@ router.get('/categoria_adm', forAdmins, (req, res) => {
 });
 
 
-router.get('/get-site-config', forAdmins, async (req, res) => {
+router.get('/get-site-config', async (req, res) => {
     try {
         const data = await readFile(configPath);
         res.json({
