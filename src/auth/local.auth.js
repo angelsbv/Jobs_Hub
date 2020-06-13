@@ -33,7 +33,7 @@ passport.deserializeUser(async (username, done) => {
     const [user] = await pool.query(buildSearchUserQuery(username)());
     let DEVAPIToken = null;
     if(user.userRol >= 1){
-        let [APIToken] = await pool.query(`SELECT APIToken FROM PostersInfo WHERE ID = ${user.ID}`);
+        let [APIToken] = await pool.query(`SELECT APIToken FROM PostersInfo WHERE userID = ${user.ID}`);
         DEVAPIToken = APIToken;
         user.APIToken = DEVAPIToken.APIToken;
         done(null, user);
